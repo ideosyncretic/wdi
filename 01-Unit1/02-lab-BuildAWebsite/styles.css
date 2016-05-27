@@ -1,0 +1,123 @@
+@import url("./_reset.css");
+
+/*<link href='https://fonts.googleapis.com/css?family=Bitter:400,400italic,700' rel='stylesheet' type='text/css'>*/
+
+html {
+  font-size: 22px;
+  /*font-family: 'Bitter', serif;*/
+}
+
+body {
+  background: linen;
+}
+
+header {
+  text-align: center;
+}
+
+p {
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: lightblue;
+}
+
+a:visited {
+  color: darksalmon;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 5px;
+}
+
+h2 {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.1em;
+}
+
+em {
+  font-style: italic;
+  font-weight: bold;
+}
+
+main {
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  margin: 50px;
+  padding: 20px;
+}
+
+section {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin: 10px;
+  padding: 20px;
+}
+
+#profile {
+	margin-left: 40px;
+	border-radius: 50%;
+	height: 150px;
+  float: right;
+	}
+
+#work {
+	margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: block;
+	height: 300px;
+	}
+
+.intro {
+  padding: 30px;
+}
+
+.text {
+  display: block;
+  float: left;
+}
+
+.project {
+  display: block;
+  text-align: center;
+}
+
+.summary {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.8em;
+}
+
+.social {
+  text-align: center;
+}
+
+li:hover {
+  font-size: 1.5em;
+}
+
+li {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  display: inline;
+}

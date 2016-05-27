@@ -1,0 +1,102 @@
+@import url("./_reset.css");
+
+html {
+  font-size: 20px;
+  text-align: center;
+  background: url("asimov2.jpg") bottom no-repeat fixed;
+  background-size: contain;
+  background-color: #999999;
+}
+
+body {
+  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+  color: white;
+}
+
+nav {
+  display: block;
+  padding: 20px;
+  text-align: center;
+  color: gold;
+  background-color: black;
+}
+
+h1 {
+  font-size: 3.5em;
+  color: gold;
+  line-height: 1;
+  margin-top: 20%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-top: 15%;
+}
+
+h3 {
+  font-size: 1.1em;
+}
+
+em {
+  font-style: italic;
+  font-weight: bold;
+}
+
+p {
+  line-height: 1.5;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+}
+
+a {
+  display: inline-block;
+  color: white;
+}
+
+a:hover {
+  /*text-decoration: underline;*/
+  color: gold;
+}
+
+li {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+blockquote {
+  background: grey;
+  border-left: 10px solid gold;
+  margin: 1.5em 10%;
+  padding: 0.5em;
+}
+
+blockquote:before {
+  color: gold;
+  content: open-quote;
+  font-size: 4em;
+}
+
+.about {
+  margin-bottom: 15%;
+}
+
+.list {
+  text-align: left;
+  display: inline-block;
+}
+
+/*a:link {
+  color: gold;
+}
+
+a:visited {
+  color: grey;
+}*/

@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: cornflowerblue;
+  clear: both;
+}
+
+.float {
+  float:left;
+}
+
+.absolute {
+  position: absolute;
+  right: 5px;
+}
+
+.fixed {
+  bottom: 5px;
+  right: 5px;
+  position: fixed;
+}
+
+.vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.word {
+  background: thistle;
+  width: 150px;
+  height: 100px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: block;
+  box-sizing: border-box;
+  border: 5px solid black;
+}
+
+.footer {
+  border: 5px solid lime;
+  width: 50%;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.footer .word {
+  height: 50px;
+  border: 5px solid purple;
+}
