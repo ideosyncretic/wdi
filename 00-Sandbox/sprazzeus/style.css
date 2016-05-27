@@ -1,0 +1,76 @@
+@font-face {
+	font-family: "baron_neue_black";
+	src: url('fonts/baron_neue_black-webfont.eot'); /* IE9 Compat Modes */
+  	src: url('fonts/baron_neue_black-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    	 url('fonts/baron_neue_black-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+    	 url('fonts/baron_neue_black-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+    	 url('fonts/baron_neue_black-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+    	 url('fonts/baron_neue_black-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+header {
+	min-height: 60vh;
+	padding-top: 10vh;
+	padding-bottom: 15vh;
+}
+
+body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: cornflowerblue;
+	background-color: #FDF2EE;
+	text-align: center;
+}
+
+a {
+	color: darksalmon;
+}
+
+h1 {
+	font-family: "baron_neue_black";
+	font-size: 70px;
+	line-height: 100%;
+}
+
+h2 {
+	font-family: "baron_neue_black";
+	font-size: 30px;
+}
+
+h3 {
+	font-family: "baron_neue_black";
+	font-size: 20px;
+	letter-spacing: 1px;
+	color: cornflowerblue;
+}
+
+p {
+ 	font-size: 20px;
+ 	font-family: helvetica;
+ 	text-align: left;
+ }
+
+article {
+      max-width: 600px;
+      padding: 20px;
+      margin: 0 auto;
+}
+
+footer {
+	font-size: 12px;
+}
+
+#profile {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 50%;
+	height: 150px;
+	}
+
+img {
+	display: block;
+	margin: 0 auto;
+	height: 20px;
+	}
+
+}
