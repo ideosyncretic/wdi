@@ -2,27 +2,28 @@
 
 html {
   font-size: 20px;
-  text-align: center;
   background: url("asimov2.jpg") bottom no-repeat fixed;
   background-size: auto;
   background-color: #999999;
 }
 
 body {
-  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+  font-family: 'Futura', 'Trebuchet MS', Arial, sans-serif;
   color: white;
 }
 
 .column {
+  display: flex;
   flex-flow: column wrap;
 }
 
 .row {
+  display: flex;
   flex-wrap: wrap;
 }
 
 
-nav {
+nav ul {
   display: flex;
   padding: 20px;
   color: gold;
@@ -31,9 +32,8 @@ nav {
 }
 
 main {
-  display: flex;
-  flex-flow: column wrap;
   align-items: center;
+  margin: 15% 0;
 }
 
 h1 {
@@ -42,17 +42,14 @@ h1 {
   line-height: 1;
   display: flex;
   justify-content: center;
-  margin: 40vh 50px;
 }
 
 h2 {
   font-size: 2.5em;
-  margin-top: 15%;
 }
 
 h3 {
   font-size: 1.1em;
-  text-align: left;
 }
 
 em {
@@ -64,7 +61,7 @@ p {
   line-height: 1.5;
   text-align: left;
   font-size: 0.9em;
-  font-family: Optima;
+  font-family: "Optima";
 }
 
 a {
@@ -72,9 +69,8 @@ a {
   color: white;
 }
 
-li {
+ul li {
   padding: 0 10px;
-  list-style: none;
 }
 
 a:hover {
@@ -85,7 +81,6 @@ a:hover {
 
 article {
   padding-top: 30px;
-  margin-bottom: 15%;
   display: flex;
   flex-flow: column wrap;
   max-width: 50%;
@@ -143,9 +138,14 @@ blockquote:before {
 /* mobile view */
 
 @media all and (max-width: 500px) {
-  nav {
+  nav ul {
     /* On small screens, we are no longer using row direction but column */
     flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+
   }
 
   div .books {
