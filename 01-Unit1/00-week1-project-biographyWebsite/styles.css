@@ -4,8 +4,9 @@ html {
   font-size: 20px;
   text-align: center;
   background: url("asimov2.jpg") bottom no-repeat fixed;
-  background-size: contain;
+  background-size: auto;
   background-color: #999999;
+  box-sizing: border-box;
 }
 
 body {
@@ -13,21 +14,36 @@ body {
   color: white;
 }
 
+.column {
+  flex-flow: column wrap;
+}
+
+.row {
+  flex-wrap: wrap;
+}
+
+
 nav {
-  display: block;
+  display: flex;
   padding: 20px;
-  text-align: center;
   color: gold;
   background-color: black;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
 }
 
 h1 {
   font-size: 3.5em;
   color: gold;
   line-height: 1;
-  margin-top: 20%;
-  margin-left: 20px;
-  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  margin: 40vh 50px;
 }
 
 h2 {
@@ -37,6 +53,7 @@ h2 {
 
 h3 {
   font-size: 1.1em;
+  text-align: left;
 }
 
 em {
@@ -46,36 +63,75 @@ em {
 
 p {
   line-height: 1.5;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
   text-align: left;
+  font-size: 0.9em;
+  font-family: Optima;
 }
 
 a {
   text-decoration: none;
-}
-
-a {
-  display: inline-block;
   color: white;
 }
 
+li {
+  padding: 0 10px;
+}
+
 a:hover {
-  /*text-decoration: underline;*/
   color: gold;
 }
 
-li {
-    margin-left: auto;
-    margin-right: auto;
+/* bio */
+
+article {
+  padding-top: 30px;
+  margin-bottom: 15%;
+  display: flex;
+  flex-flow: column wrap;
+  max-width: 50%;
 }
+
+/* bibiliography */
+
+.books {
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.book {
+    border: 3px solid gold;
+    padding: 30px;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+section {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 0 30px;
+  flex: 2;
+}
+
+div .image {
+  height: 272px;
+  width: 160px;
+}
+
+.image {
+  background: url('./foundation.jpg') no-repeat;
+  background-size: cover;
+}
+
+
+/* quotes */
 
 blockquote {
   background: grey;
   border-left: 10px solid gold;
   margin: 1.5em 10%;
-  padding: 0.5em;
+  padding: 1em;
+  border-radius: 10px;
 }
 
 blockquote:before {
@@ -84,19 +140,28 @@ blockquote:before {
   font-size: 4em;
 }
 
-.about {
-  margin-bottom: 15%;
-}
+/* mobile view */
 
-.list {
-  text-align: left;
-  display: inline-block;
-}
+@media all and (max-width: 500px) {
+  nav {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
 
-/*a:link {
-  color: gold;
-}
+  div .books {
+    margin: 0 30px;
+  }
 
-a:visited {
-  color: grey;
-}*/
+  div .book {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  div .image {
+    margin-bottom: 30px;
+  }
+
+  article {
+    max-width: 70%;
+  }
+}
