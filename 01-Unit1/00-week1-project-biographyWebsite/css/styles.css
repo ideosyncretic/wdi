@@ -96,16 +96,20 @@ article {
 }
 
 .book {
-    border: 3px solid gold;
+    border-bottom: 2px solid gold;
     padding: 30px;
     display: flex;
     margin-bottom: 30px;
 }
 
+.book:last-child {
+  border-bottom: none;
+}
+
 section {
   display: flex;
   flex-flow: column wrap;
-  padding: 0 30px;
+  padding-left: 30px;
   flex: 2;
 }
 
@@ -117,6 +121,7 @@ div .image {
 }
 
 /* bibiliography read more */
+
 .read-more-state {
   display: none;
 }
@@ -164,9 +169,10 @@ div .image {
 blockquote {
   background: grey;
   border-left: 10px solid gold;
+  border-radius: 10px;
   margin: 20px;
   padding: 1em;
-  border-radius: 10px;
+  line-height: 1.5em;
   font-family: "Optima";
   max-width: 60%;
 }
@@ -208,6 +214,10 @@ blockquote:after {
 
   div .image {
     margin-bottom: 30px;
+  }
+
+  section {
+    padding: 0;
   }
 
   article {
