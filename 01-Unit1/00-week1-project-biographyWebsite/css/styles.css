@@ -1,4 +1,4 @@
-@import url("./_reset.css");
+@import url("_reset.css");
 
 html {
   font-size: 20px;
@@ -115,17 +115,6 @@ div .image {
   background-size: cover;
   background-repeat: no-repeat;
 }
-
-.image {
-  background: url('../images/foundation.jpg') no-repeat;
-  background-size: cover;
-}
-
-.image2 {
-  background: url('../images/i-robot.jpg') no-repeat;
-  background-size: cover;
-}
-
 
 /* bibiliography read more */
 .read-more-state {
