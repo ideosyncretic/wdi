@@ -2,7 +2,7 @@
 
 html {
   font-size: 20px;
-  background: url("../images/asimov2.jpg") bottom no-repeat fixed;
+  background: url("../images/asimov2.jpg") top no-repeat fixed;
   background-size: auto;
   background-color: #999999;
 }
@@ -22,7 +22,6 @@ body {
   flex-wrap: wrap;
 }
 
-
 nav ul {
   display: flex;
   padding: 20px;
@@ -34,15 +33,22 @@ nav ul {
 main {
   align-items: center;
   margin: 15% 0;
+  height: 100%;
+}
+
+main#homepage {
+  justify-content: center;
+  height: calc(100vh - 80px);
+  margin: 0;
+  display: flex;
 }
 
 h1 {
   font-size: 3.5em;
   color: gold;
   line-height: 1;
-  display: flex;
-  justify-content: center;
   text-align: center;
+  margin: 0 30px;
 }
 
 h2 {
