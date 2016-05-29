@@ -2,7 +2,7 @@
 
 html {
   font-size: 20px;
-  background: url("asimov2.jpg") bottom no-repeat fixed;
+  background: url("../images/asimov2.jpg") bottom no-repeat fixed;
   background-size: auto;
   background-color: #999999;
 }
@@ -42,6 +42,7 @@ h1 {
   line-height: 1;
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 h2 {
@@ -91,7 +92,7 @@ article {
 .books {
   display: flex;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 30px;
 }
 
 .book {
@@ -111,33 +112,92 @@ section {
 div .image {
   height: 272px;
   width: 160px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .image {
-  background: url('./foundation.jpg') no-repeat;
+  background: url('../images/foundation.jpg') no-repeat;
   background-size: cover;
 }
 
+.image2 {
+  background: url('../images/i-robot.jpg') no-repeat;
+  background-size: cover;
+}
+
+
+/* bibiliography read more */
+.read-more-state {
+  display: none;
+}
+
+.read-more-target {
+  opacity: 0;
+  max-height: 0;
+  font-size: 0;
+  transition: .25s ease;
+}
+
+.read-more-target br {
+  display: none;
+}
+
+.read-more-state:checked ~ .read-more-wrap .read-more-target br {
+  display: block;
+}
+
+.read-more-state:checked ~ .read-more-wrap .read-more-target {
+  opacity: 1;
+  font-size: inherit;
+  max-height: 999em;
+}
+
+.read-more-state ~ .read-more-trigger:before {
+  content: 'Read more';
+}
+
+.read-more-state:checked ~ .read-more-trigger:before {
+  content: 'Read less';
+}
+
+.read-more-trigger {
+  cursor: pointer;
+  display: inline-block;
+  color: gold;
+  font-size: .9em;
+  line-height: 2;
+  margin-top: 1em;
+}
 
 /* quotes */
 
 blockquote {
   background: grey;
   border-left: 10px solid gold;
-  margin: 1.5em 10%;
+  margin: 20px;
   padding: 1em;
   border-radius: 10px;
+  font-family: "Optima";
+  max-width: 60%;
+}
+
+blockquote:before, blockquote:after {
+  color: gold;
 }
 
 blockquote:before {
-  color: gold;
-  content: open-quote;
-  font-size: 4em;
+  content: '“';
+
+}
+
+blockquote:after {
+  content: '”';
 }
 
 /* mobile view */
 
-@media all and (max-width: 500px) {
+@media all and (max-width: 480px) {
   nav ul {
     /* On small screens, we are no longer using row direction but column */
     flex-direction: column;
