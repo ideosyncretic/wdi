@@ -1,10 +1,6 @@
-console.log("jq loaded");
 $(function() {
 
 // EVENT HANDER TO TRIGGER TILE
-
-// startGame();
-
 $(".tile").click ( function() {
   var id = parseInt(this.id);
   if ( playTurn(id) ) {
