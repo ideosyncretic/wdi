@@ -1,0 +1,70 @@
+html {
+  height: 100%;
+  width:100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+
+.ball {
+  background: black;
+  position:absolute;
+  top: 0px;
+  left: 0px;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50%;
+}
+
+.red {
+  background: red;
+}
+
+.blue {
+  background: blue;
+}
+
+.green {
+  background: green;
+}
+
+.hidden {
+  display: none;
+}
+
+/* arrows */
+
+
+.top {
+  position: absolute;
+  left: 50%;
+  top: 0;
+}
+
+.right {
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+
+.left {
+  position: absolute;
+  left: 0;
+  top: 50%;
+}

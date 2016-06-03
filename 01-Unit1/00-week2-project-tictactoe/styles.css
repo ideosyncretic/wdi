@@ -1,0 +1,70 @@
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Futura', 'Trebuchet MS', Arial, sans-serif;
+  font-size: 20px;
+  background: ghostwhite;
+  border: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+h1, h3 {
+  color: cornflowerblue;
+  text-align: center;
+}
+
+.board {
+  height: 39vw;
+  width: 39vw;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.tile {
+  border: 3px solid ghostwhite;
+  background: cornflowerblue;
+  box-sizing: border-box;
+  width: 13vw;
+  height: 13vw;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 3em;
+  transition: all .2s ease;
+}
+
+.tile:hover {
+  background: turquoise;
+  transform: scale(0.9, 0.9);
+  border: none;
+}
+
+button {
+  background-color: turquoise;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  color: white;
+  text-align: center;
+  font-size: 1em;
+  padding: 15px;
+  font-family: "Futura";
+  transition: all .1s ease;
+  letter-spacing: 0.3em;
+}
+
+button:hover {
+  transform: scale(1.2, 1.2);
+}
