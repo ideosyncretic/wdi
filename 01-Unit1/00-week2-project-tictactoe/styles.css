@@ -63,6 +63,7 @@ button {
   font-family: "Futura";
   transition: all .1s ease;
   letter-spacing: 0.3em;
+  cursor: pointer;
 }
 
 button:hover {
