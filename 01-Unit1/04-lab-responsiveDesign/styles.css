@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header, nav, article, aside, footer {
+  border: 1px solid blue;
+  padding: 10px 20px;
+}
+
+header {
+  border: 1px solid blue;
+  min-width: 300px;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+nav {
+  border: 1px solid blue;
+  flex: 1;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0px;
+  flex-wrap: wrap;
+}
+
+nav li {
+  border: 1px solid blue;
+  flex: 1;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+article {
+  flex: 3 0 300px;
+}
+
+aside {
+  flex: 3;
+}
+
+footer {
+  text-align: center;
+}
