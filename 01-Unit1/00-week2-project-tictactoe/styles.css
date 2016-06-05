@@ -84,6 +84,10 @@ button:hover {
 }
 
 @media screen and (max-width: 480px) {
+  h1 {
+    padding: 0;
+    margin: 10px;
+  }
 
   .board {
     width: 78vw;
