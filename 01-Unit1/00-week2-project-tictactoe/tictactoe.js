@@ -28,26 +28,51 @@ $(".tile").click ( function() {
         }
       }
     })(); // invoke immediately;
-
+    if (seconds === 6) {
+    $("#speed-button").addClass("disabled", 2000, "swing");
+    }
   }
 );
 
+// incomplete speed round draw message
+
+function drawMessage() {
+    if (!isGameOver() && !whoWon() && seconds === 0) {
+      $("h1").html("it's a draw");
+      console.log("it's a draw");
+    }
+};
+
+
 $("#replay-button").click(restart)
 
+function restart() {
+  grid = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  $(".tile").empty();
+  $("h1").html("☁ vs ✈");
+  player = 2;
+  $( "#speed-button" ).text("SPEED ROUND");
+  $("#speed-button").removeClass("disabled", 2000, "swing")
+  reset();
+}
+
+// It should take one parameter which is a zero-based index to your grid, indicating where the current player's token should be played. It should return a boolean value to indicate whether the move was allowed or not - true if it was successful, false otherwise e.g. if the square is already taken or the game is over.
 
 var grid = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 var player = 2;
 
-function restart() {
-  grid = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-  $(".tile").empty();
-  $("h1").html("tic tac toe");
-  player = 2;
-  $( "#speed-button" ).text("SPEED ROUND");
-}
-
-// It should take one parameter which is a zero-based index to your grid, indicating where the current player's token should be played. It should return a boolean value to indicate whether the move was allowed or not - true if it was successful, false otherwise e.g. if the square is already taken or the game is over.
+function gridEmpty() {
+    function getSum(total, num) {
+        return total + num;
+    };
+    grid.reduce(getSum);
+    if (grid.reduce(getSum) === 0) {
+      return true;
+    }
+    return false;
+    console.log( gridEmpty() );  
+};
 
 function playTurn(index) {
   if (!isGameOver() && !grid[index]) {
@@ -102,8 +127,9 @@ function isGameOver() {
 
 // The application will console log all the passed or failed test.
 
+// -------------------- start timercode ---------------------------
 
-// start timercode
+
 
 $( "#speed-button" ).click(Start);
 
@@ -113,32 +139,32 @@ var timerId;
 function UpdateText() {
     seconds--;
     $( "#speed-button" ).text("Time: " + seconds);
+    if (whoWon()) {
+      Pause();
+    }
     if (seconds === 0) {
       Pause();
-      restart();
+      drawMessage();
     }
-}
+};
 
 function reset() {
     console.log("Reset Clicked");
     clearInterval(timerId)
-    // seconds = 3;
-    UpdateText();
+    seconds = 6;
 }
 
 function Start() {
+    if (seconds === 6 && gridEmpty()) {
+    timerId = setInterval(UpdateText, 1000)
+    }
     console.log("Start Clicked");
-    timerId = setInterval(UpdateText, 1000);
 }
 
 function Pause() {
-    // if (seconds === 0) {
     console.log("Pause Clicked");
     clearInterval(timerId);
-
 }
 
 // end timer code
-
-
 });
