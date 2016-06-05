@@ -23,8 +23,8 @@ h1, h3 {
 }
 
 .board {
-  height: 39vw;
-  width: 39vw;
+  height: 54vh;
+  width: 54vh;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -34,8 +34,8 @@ h1, h3 {
   border: 3px solid ghostwhite;
   background: cornflowerblue;
   box-sizing: border-box;
-  width: 13vw;
-  height: 13vw;
+  width: 18vh;
+  height: 18vh;
   float: left;
   display: flex;
   justify-content: center;
@@ -51,6 +51,13 @@ h1, h3 {
   border: none;
 }
 
+.buttons {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
 button {
   background-color: turquoise;
   border-radius: 50px;
@@ -60,6 +67,7 @@ button {
   text-align: center;
   font-size: 1em;
   padding: 15px;
+  margin: 5px;
   font-family: "Futura";
   transition: all .1s ease;
   letter-spacing: 0.3em;
@@ -72,4 +80,16 @@ button:hover {
 
 #speed-button.disabled {
   background-color: lightgrey;
+}
+
+@media screen and (max-width: 480px) {
+  .board {
+    width: 78vw;
+    height: 78vw;
+  }
+
+  .tile {
+    width: 26vw;
+    height: 26vw;
+  }
 }
