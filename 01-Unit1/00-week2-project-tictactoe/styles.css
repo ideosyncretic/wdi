@@ -15,6 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-flow: column;
+  max-height: 100vh;
 }
 
 h1, h3 {
