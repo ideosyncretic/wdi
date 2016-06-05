@@ -15,6 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-flow: column;
+  max-height: 90vh;
 }
 
 h1, h3 {
@@ -83,6 +84,10 @@ button:hover {
 }
 
 @media screen and (max-width: 480px) {
+  h1 {
+    padding: 0;
+    margin: 10px;
+  }
 
   .board {
     width: 78vw;
