@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <!-- <script src="./tic-tac-tester.js"></script> -->
 </head>
 <body>
   <header>
-    <h1>cloud vs. plane</h1>
+    <h1>☁ vs ✈</h1>
   </header>
   <div class="board">
     <!-- ROW 1 -->
@@ -26,8 +28,11 @@
     <div class="tile" id="8"></div>
 
   </div><br>
-  <button id="replay-button">REPLAY</button><br>
-  <button id="speed-button">SPEED ROUND</button>
+
+  <div class="buttons">
+    <button id="speed-button">SPEED ROUND</button>
+    <button id="replay-button">REPLAY</button>
+  </div>
 
   <script src="./tictactoe.js"></script>
 
