@@ -12,7 +12,7 @@ var answers = [
 ]
 
  // stores answers in alternate. distinguish by modulo % === 2.
-var playersAnswers = [null];
+var playersAnswers = new Array(10);
 
 //It should return an integer that is the number of questions in a game
 function numberOfQuestions() {
