@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./quiz-tester.js"></script>
+    <script   src="http://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.4.0/annyang.min.js"></script>
+
+    <!-- annyang voice recognition -->
+
+    <script>
+    if (annyang) {
+      console.log("annyang loaded")
+      // Let's define a command.
+      var commands = {
+        'hello': function() { alert('Hello world!'); },
+        'red': function() { playersAnswers.push("red") },
+        'orange': function() { playersAnswers.push("orange") },
+        'yellow': function() { playersAnswers.push("yellow") },
+        'blue': function() { playersAnswers.push("blue") },
+        'green': function() { playersAnswers.push("green") },
+        'pink': function() { playersAnswers.push("pink") },
+        'purple': function() { playersAnswers.push("purple") },
+        'brown': function() { playersAnswers.push("brown") },
+        'grey': function() { playersAnswers.push("grey") },
+        'black': function() { playersAnswers.push("black") }
+
+      };
+
+      // Add our commands to annyang
+      annyang.addCommands(commands);
+
+      // Start listening.
+      annyang.start();
+    }
+
+    </script>
+    <title></title>
+  </head>
+  <body>
+
+    <script src="./js.js"></script>
+  </body>
+</html>
