@@ -1,0 +1,96 @@
+html {
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  font-family: "Georgia", serif;
+  color: white;
+  font-size: 24px;
+  background: turquoise;
+  background-size: cover;
+  text-align: center;
+}
+
+h1 {
+  font-size: 50px;
+  background: white;
+  padding: 25px;
+  border-radius: 50px;
+}
+
+img {
+  margin: 20px;
+}
+
+button {
+  font-family: "Georgia", serif;
+  font-size: 30px;
+  color: white;
+  padding: 15px;
+  margin: 15px;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  transition: all .1s ease;
+}
+
+button:hover {
+  transform: scale(1.2, 1.2);
+}
+
+.buttons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.blue {
+  color: blue;
+}
+
+
+.green {
+  color: green;
+}
+
+
+.yellow {
+  color: yellow;
+}
+
+.orange {
+  color: orange;
+}
+
+.red {
+  color: red;
+}
+
+.pink {
+  color: hotpink;
+}
+
+.purple {
+  color: purple;
+}
+
+.black {
+  color: black;
+}
+
+.grey {
+  color: grey;
+}
+
+.brown {
+  color: brown;
+}

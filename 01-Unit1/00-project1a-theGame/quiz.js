@@ -8,22 +8,22 @@ function Question (prompt, answers, correctAnswerIndex) {
 }
 
 // Questions + Answers + Correct Answer Index
-var question1 = new Question('Blue', ['green', 'orange', 'black', 'purple'], 0) // green
+var question1 = new Question('Blue', ['purple', 'blue', 'black', 'green'], 0) // green
 var question2 = new Question('Yellow', ['pink', 'yellow', 'orange', 'blue'], 2) // orange
-var question3 = new Question('Pink', ['grey', 'red', 'yellow', 'blue'], 1) // red
-var question4 = new Question('Yellow', ['blue', 'purple', 'grey', 'red'], 2) // grey
+var question3 = new Question('Pink', ['grey', 'red', 'pink', 'blue'], 1) // red
+var question4 = new Question('Yellow', ['blue', 'yellow', 'grey', 'red'], 2) // grey
 var question5 = new Question('Green', ['green', 'black', 'orange', 'purple'], 1) // black
 var question6 = new Question('Orange', ['red', 'yellow', 'blue', 'orange'], 2) // blue
-var question7 = new Question('Black', ['pink', 'yellow', 'orange', 'blue'], 1) // yellow
-var question8 = new Question('Purple', ['grey', 'yellow', 'purple', 'blue'], 2) // purple
-var question9 = new Question('Red', ['blue', 'purple', 'brown', 'yellow'], 2) // brown
+var question7 = new Question('Black', ['black', 'pink', 'orange', 'blue'], 1) // pink
+var question8 = new Question('Grey', ['grey', 'yellow', 'purple', 'blue'], 2) // purple
+var question9 = new Question('Blue', ['blue', 'black', 'red', 'yellow'], 2) // red
 var question10 = new Question('Green', ['green', 'orange', 'black', 'pink'], 1) // pink
 
 
 // Quiz Object. Starting variables/values.
 var quiz = {
   currentQuestion: 0,
-  questions: [question1, question2, question3, question4, question5],
+  questions: [question1, question2, question3, question4, question5, question6, question7, question8, question9],
   isGameOver: false,
   player1Points: 0,
   player2Points: 0,
@@ -88,6 +88,7 @@ function whoWon() {
   if (!quiz.isGameOver) {return 0}; // game in progress
   if (quiz.player1Points > quiz.player2Points) {return 1};
   if (quiz.player2Points > quiz.player1Points) {return 2};
+  if (quiz.player1Points === quiz.player2Points) {return 3}
 };
 
 // revert the game, scores and question.
@@ -100,4 +101,64 @@ function restart() {
   quiz.player = 1;
 };
 
- // end code. do not remove
+function updateDisplay() {
+  if (isGameOver()) {
+    if (whoWon() === 3) {
+      $("h1").addClass("black").text("It's a draw!");
+      console.log("It's a draw!");
+    }
+    if (whoWon() !== 3)
+    $("h1").addClass("black").text("Player " + whoWon() + " wins.");
+    console.log("Player " + whoWon() + " won");
+  }
+  else {
+    // populate prompt and update colour
+    $("h1").text(quiz.questions[quiz.currentQuestion].prompt);
+    // populate buttons with answer content
+    $("button").eq(0).text(quiz.questions[quiz.currentQuestion].answers[0]);
+    $("button").eq(1).text(quiz.questions[quiz.currentQuestion].answers[1]);    $("button").eq(2).text(quiz.questions[quiz.currentQuestion].answers[2]);
+    $("button").eq(3).text(quiz.questions[quiz.currentQuestion].answers[3]);
+    if (quiz.currentQuestion === 0) {
+      $("h1").addClass("green")
+    }
+    if (quiz.currentQuestion === 1) {
+      $("h1").removeClass("green").addClass("orange")
+    }
+    if (quiz.currentQuestion === 2) {
+      $("h1").removeClass("orange").addClass("red")
+    }
+    if (quiz.currentQuestion === 3) {
+      $("h1").removeClass("red").addClass("grey")
+    }
+    if (quiz.currentQuestion === 4) {
+      $("h1").removeClass("grey").addClass("black")
+    }
+    if (quiz.currentQuestion === 5) {
+      $("h1").removeClass("black").addClass("blue")
+    }
+    if (quiz.currentQuestion === 6) {
+      $("h1").removeClass("blue").addClass("pink")
+    }
+    if (quiz.currentQuestion === 7) {
+      $("h1").removeClass("pink").addClass("purple")
+    }
+    if (quiz.currentQuestion === 8) {
+      $("h1").removeClass("purple").addClass("red")
+    }
+    if (quiz.currentQuestion === 9) {
+      $("h1").removeClass("green").addClass("pink")
+    }
+  }
+};
+
+
+$( function () {
+  $("button").click( function() {
+    if (!isGameOver()) {
+      playTurn($(this).index())
+    }
+    updateDisplay();
+  })
+updateDisplay();
+})
+ // end code
