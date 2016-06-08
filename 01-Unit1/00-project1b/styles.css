@@ -40,13 +40,16 @@ body {
   flex: 1;
   align-items: center;
   justify-content: center;
-  width: 50px;
+  width: 40px;
   border-left: 2px solid tan;
 }
 
 .key {
-  transform: scale(0.5, 0.5);
   margin: 2px;
+  background: lightgrey;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
 }
 
 .buttons {
