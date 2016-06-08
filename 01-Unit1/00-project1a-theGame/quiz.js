@@ -116,7 +116,8 @@ function updateDisplay() {
     $("h1").text(quiz.questions[quiz.currentQuestion].prompt);
     // populate buttons with answer content
     $("button").eq(0).text(quiz.questions[quiz.currentQuestion].answers[0]);
-    $("button").eq(1).text(quiz.questions[quiz.currentQuestion].answers[1]);    $("button").eq(2).text(quiz.questions[quiz.currentQuestion].answers[2]);
+    $("button").eq(1).text(quiz.questions[quiz.currentQuestion].answers[1]);
+    $("button").eq(2).text(quiz.questions[quiz.currentQuestion].answers[2]);
     $("button").eq(3).text(quiz.questions[quiz.currentQuestion].answers[3]);
     if (quiz.currentQuestion === 0) {
       $("h1").addClass("green")
