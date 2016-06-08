@@ -1,51 +1,88 @@
 
 // generate random sequence of 4 colored pins.
-secretPins = new Array();
+answer = [];
 
-function generatePins() {
-  var pinColor;
+function generateAnswer() {
+  var pin;
   var randomNumber;
   for (var i = 0; i < 4; i++) {
     randomNumber = Math.random();
-    console.log(randomNumber)
     if (randomNumber < 0.25) {
-      pinColor = 0 // blue
+      pin = "blue"
     };
     if (randomNumber > 0.25) {
-      pinColor = 1 // red
+      pin = "red"
     };
     if (randomNumber > 0.5) {
-      pinColor = 2 // yellow
+      pin = "yellow"
     };
     if (randomNumber > 0.75 ) {
-      pinColor = 3 // green
+      pin = "green"
     };
-    secretPins.push(pinColor)
-  }
+    answer.push(pin)
+    }
 }
 
-generatePins();
-
-console.log(secretPins)
+generateAnswer();
+console.log(answer);
 
 
 // generate key pins: white for correct color, and black for correct position + correct color. singular instances only, whereupon each player guess correspond with a secret pin.
 
 
-// player has 12 guesses.
-var guesses = new Array(12)
+// player has 12 guesses. each guess comprises 4-pin sequence.
 
-// player inputs guesses of 4 colored pins.
+var guesses = [];
+var guess = [];
+var currentPin = 0;
+var completeGuess = false;
+var totalGuesses = 0;
 
-var guess = new Array(4);
+$(function() {
 
-function choosePins() {
-  if
-  $("#blue").click( function() {
-    guess.push(0)
+function playerGuess() {
+  $(".picker").click(function() {
+    if ( (guess.length < 4) && (currentPin < 40) ) {
+      guess.push($(this).attr("class").split(" ")[0])
+      $("button").eq(currentPin).addClass($(this).attr("class").split(" ")[0])
+      console.log("Guess = " + guess)
+      currentPin++;
+      completeGuess = false;
+    }
+    if (guess.length === 4) {
+      guesses.push([guess])
+      console.log("Guesses = " + guesses)
+      guess = [];
+      completeGuess = true;
+      totalGuesses += 1;
+      console.log("New complete guess! Total = " + totalGuesses)
+    }
   })
+};
 
-}
+function gameOver() {
+  if (guesses.length === 10) {
+    return true
+  }
+  return false;
+};
 
+playerGuess();
 
-// end code
+function clearGuess() {
+  $("#clear").click( function() {
+    if (completeGuess) {
+      for (var i = 0; i < 4; i++) {
+        $("button").eq(currentPin-1).removeClass()
+        currentPin -= 1;
+      }
+    completeGuess = false;
+    totalGuesses -= 1;
+    console.log("clearGuess ran, total = " + totalGuesses);
+    }
+  })
+};
+
+clearGuess();
+
+});// end code

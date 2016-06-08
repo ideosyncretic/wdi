@@ -6,20 +6,100 @@ html {
   background: none;
   display: flex;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 body {
   display: flex;
-  height: 100vh;
-  width: 50vh;
-  background: ghostwhite;
+  flex-direction: column;
+  width: 60vh;
+  background: linen;
+  align-items: center;
+  justify-content: center;
+  font-family: "Futura";
 }
 
-.ball {
-  background: teal;
+.guesses {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+  flex: 5;
+}
+
+.guess {
+  display: flex;
+  align-items: center;
+  flex: 5
+}
+
+.keys {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  border-left: 2px solid tan;
+}
+
+.key {
+  transform: scale(0.5, 0.5);
+  margin: 2px;
+}
+
+.buttons {
+  display: flex;
+  flex-flow: row wrap;
+  border: 3px solid tan;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+button {
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  bottom: 10px;
-  align-self: flex-end;
+  border: none;
+  outline: none;
+  margin: 10px;
+  cursor: pointer;
+  transition: all .1s ease;
+}
+
+button:hover {
+  transform: scale(1.2, 1.2);
+}
+
+.blue {
+  background: #6961FF;
+}
+
+.red {
+  background: #FF6173;
+}
+
+.yellow {
+  background: #FFB861;
+}
+
+.green {
+  background: #47B747;
+}
+
+#clear {
+  background: tan;
+  height: 40px;
+  width: 100px;
+  border-radius: 35px;
+  border: none;
+  outline: none;
+  margin: 10px;
+  cursor: pointer;
+  transition: all .1s ease;
+  font-family: inherit;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: white;
 }
