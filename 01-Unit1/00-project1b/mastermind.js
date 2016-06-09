@@ -32,6 +32,7 @@ var guesses = []; // array of checked guesses
 var currentGuess = [];
 var currentPinNumber = 0;
 var currentKey = 0;
+var guessKeysQuantity = 0;
 
 $(function() {
 
@@ -83,6 +84,7 @@ function checkGuess() {
           console.log("(key: red) " + tempAnswer[i])
           delete tempAnswer[i];
           currentKey++;
+          guessKeysQuantity++;
         }
       } // end for loop (RED keys)
 
@@ -93,9 +95,19 @@ function checkGuess() {
           console.log("(key: white) " + tempAnswer[tempAnswer.indexOf(currentGuess[i])])
           delete tempAnswer[tempAnswer.indexOf(currentGuess[i])]
           currentKey++;
+          guessKeysQuantity++;
         }
       } // end for loop (WHITE keys)
 
+      // skip over empty keys
+      if (guessKeysQuantity) {
+      currentKey += (4 - guessKeysQuantity);
+      }
+      else if (!guessKeysQuantity){
+      currentKey += 4;
+      }
+      
+      // repopulate tempAnswer for next check
       tempAnswer = answer;
     }
     else {
