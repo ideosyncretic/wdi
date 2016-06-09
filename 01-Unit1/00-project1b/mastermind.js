@@ -26,32 +26,27 @@ function generateAnswer() {
 generateAnswer();
 console.log(answer);
 
-// player has 10 guesses, each comprises 4-pin sequence.
 
-var guesses = []; // array of checked guesses
+var checkedGuesses = []; // array of checked guesses
 var currentGuess = [];
-var currentPinNumber = 0;
+var currentPinIndex = 0;
 var currentKeyIndex = 0;
 var currentGuessIndex = 0;
 
 $(function() {
 
+// player has 10 tries to guess the sequence.
 function playerGuess() {
   $(".picker").click(function() {
-    if ( (currentGuess.length < 4 && (currentPinNumber < 40)) ) {
+    if ( (currentGuess.length < 4 && (currentPinIndex < 40)) ) {
       currentGuess.push($(this).attr("class").split(" ")[0])
-      $("div.guess").eq(currentGuessIndex).children("button").eq(currentPinNumber).addClass($(this).attr("class").split(" ")[0])
+      $("div.guess").eq(currentGuessIndex).children("button").eq(currentPinIndex).addClass($(this).attr("class").split(" ")[0])
 
-
-      // previous code
-      //$("div.guess > button").eq(currentPinNumber).addClass($(this).attr("class").split(" ")[0])
-
-
-      if (currentPinNumber < 3) {
-      currentPinNumber++
+      if (currentPinIndex < 3) {
+      currentPinIndex++
       }
-      else if (currentPinNumber === 3) {
-      currentPinNumber = 0;
+      else if (currentPinIndex === 3) {
+      currentPinIndex = 0;
       }
 
       console.log("currentGuess (" + currentGuess.length + ") " + currentGuess);
@@ -63,15 +58,13 @@ function playerGuess() {
 
 playerGuess();
 
-// should clear individual pin in current guess.
-
+// clears individual pin, within current guess only.
 function clearGuess() {
   $("#clear").click( function() {
     if (currentGuess.length !== 0) {
-    $("div.guess").eq(currentGuessIndex).children("button").eq(currentPinNumber-1).removeClass()
-    currentPinNumber -= 1;
+    $("div.guess").eq(currentGuessIndex).children("button").eq(currentPinIndex-1).removeClass()
+    currentPinIndex -= 1;
     currentGuess.pop();
-    // console.log("currentGuess (" + currentGuess.length + ") " + currentGuess)
     }
   })
 };
@@ -85,16 +78,19 @@ function checkGuess() {
     var tempAnswer = [answer[0], answer[1], answer[2], answer[3]];
     if (currentGuess.length === 4) {
       $("h3").text("⟠")
-      guesses.push([currentGuess])
+      checkedGuesses.push([currentGuess])
       console.log("CHECKED: " + currentGuess)
 
-      // RED KEYS: matching position AND colour
+      // RED KEYS: matching position && colour
       for (var i = 0; i < currentGuess.length; i++) {
         if (currentGuess[i] === tempAnswer[i]) {
           $("div.guess").eq(currentGuessIndex).children(".keys").children(".key").eq(currentKeyIndex).addClass("red")
           console.log("(key: red) " + tempAnswer[i])
+          delete currentGuess[i];
           delete tempAnswer[i];
+
           currentKeyIndex++;
+          console.log("tempAnswer " + tempAnswer);
         }
       } // end for loop (RED keys)
 
@@ -104,17 +100,19 @@ function checkGuess() {
           $("div.guess").eq(currentGuessIndex).children(".keys").children(".key").eq(currentKeyIndex).addClass("white")
           // $("div.key").eq(currentKeyIndex).addClass("white")
           console.log("(key: white) " + tempAnswer[tempAnswer.indexOf(currentGuess[i])])
+          delete currentGuess[i];
           delete tempAnswer[tempAnswer.indexOf(currentGuess[i])]
           currentKeyIndex++;
+          console.log("tempAnswer " + tempAnswer);
         }
       } // end for loop (WHITE keys)
 
       currentKeyIndex = 0;
 
       // reset for next guess
-      tempAnswer = answer;
+      tempAnswer = [answer[0], answer[1], answer[2], answer[3]];
       currentGuessIndex++;
-      currentPinNumber = 0;
+      currentPinIndex = 0;
       currentGuess = [];
     } // end complete guess
 
@@ -122,7 +120,6 @@ function checkGuess() {
     else {
       $("h3").text("❝please complete your guess❞")
     }
-    console.log("tempAnswer " + tempAnswer);
     console.log("Current guess: " + currentGuessIndex)
   })
 }
@@ -130,10 +127,10 @@ function checkGuess() {
 checkGuess();
 
 function gameOver() {
-  if (guesses.length === 10) {
+  if (checkedGuesses.length === 10) {
     return true
   }
   return false;
 };
 
-});// end code
+});// end $ code
