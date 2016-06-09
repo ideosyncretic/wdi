@@ -17,6 +17,11 @@ body {
   align-items: center;
   justify-content: center;
   font-family: "Futura";
+  color: tan;
+}
+
+h1, h3 {
+  margin-bottom: 0;
 }
 
 .guesses {
@@ -70,7 +75,7 @@ button {
   outline: none;
   margin: 8px;
   cursor: pointer;
-  transition: all .1s ease;
+  transition: all 0.1s ease;
 }
 
 button:hover {
@@ -91,6 +96,10 @@ button:hover {
 
 .green {
   background: #47B747;
+}
+
+.white {
+  background: white;
 }
 
 #clear, #check {

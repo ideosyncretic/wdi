@@ -26,14 +26,12 @@ function generateAnswer() {
 generateAnswer();
 console.log(answer);
 
-
 // player has 10 guesses, each comprises 4-pin sequence.
 
-var guesses = [];
+var guesses = []; // array of checked guesses
 var currentGuess = [];
 var currentPinNumber = 0;
-var currentGuessNumber = 0;
-var guessChecked = false;
+var currentKey = 0;
 
 $(function() {
 
@@ -42,7 +40,7 @@ function playerGuess() {
     if ( (currentGuess.length < 4 && (currentPinNumber < 40)) ) {
       currentGuess.push($(this).attr("class").split(" ")[0])
       $("div.guess > button").eq(currentPinNumber).addClass($(this).attr("class").split(" ")[0])
-      console.log("currentGuess (" + currentGuess.length + ") " + currentGuess)
+      // console.log("currentGuess (" + currentGuess.length + ") " + currentGuess)
       currentPinNumber++;
     }
   })
@@ -60,7 +58,7 @@ function clearGuess() {
     $("div.guess > button").eq(currentPinNumber-1).removeClass()
     currentPinNumber -= 1;
     currentGuess.pop();
-    console.log("currentGuess (" + currentGuess.length + ") " + currentGuess)
+    // console.log("currentGuess (" + currentGuess.length + ") " + currentGuess)
     }
   })
 };
@@ -70,17 +68,47 @@ clearGuess();
 
 function checkGuess() {
   $("#check").click(function() {
+    var tempAnswer = answer;
     if (currentGuess.length === 4) {
+      $("h3").text("⟠")
       guesses.push([currentGuess])
-      console.log("Guesses = " + guesses)
-      currentGuess = [];
+      console.log("Checked: " + currentGuess)
+
+      // show clue keys
+
+      // RED KEYS: matching position AND colour
+      for (var i = 0; i < currentGuess.length; i++) {
+        if (currentGuess[i] === tempAnswer[i]) {
+          $("div.key").eq(currentKey).addClass("red")
+          console.log("(key: red) " + tempAnswer[i])
+          delete tempAnswer[i];
+          currentKey++;
+        }
+      } // end for loop (RED keys)
+
+      // WHITE KEYS: matching colour
+      for (var i = 0; i < currentGuess.length; i++) {
+        if (tempAnswer.indexOf(currentGuess[i]) !== -1) {
+          $("div.key").eq(currentKey).addClass("white")
+          console.log("(key: white) " + tempAnswer[tempAnswer.indexOf(currentGuess[i])])
+          delete tempAnswer[tempAnswer.indexOf(currentGuess[i])]
+          currentKey++;
+        }
+      } // end for loop (WHITE keys)
+
+      tempAnswer = answer;
     }
+    else {
+      $("h3").text("❝please complete your guess❞")
+    }
+    currentGuess = [];
+    console.log("tempAnswer " + tempAnswer);
   })
 }
 
 checkGuess();
 
-// generate key pins: white for correct color, and black for correct position + correct color. singular instances only, whereupon each player guess correspond with a secret pin.
+// generate key pins: white for correct color, and red for correct position + correct color. singular instances only, whereupon each player guess correspond with a secret pin.
 
 
 function gameOver() {
