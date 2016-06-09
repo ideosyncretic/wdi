@@ -17,6 +17,11 @@ body {
   align-items: center;
   justify-content: center;
   font-family: "Futura";
+  color: tan;
+}
+
+h1, h3 {
+  margin-bottom: 0;
 }
 
 .guesses {
@@ -24,24 +29,26 @@ body {
   flex-flow: column wrap;
   align-items: center;
   justify-content: center;
-  margin: 15px 0;
-  flex: 5;
+  margin: 5vh 0;
 }
 
 .guess {
   display: flex;
   align-items: center;
-  flex: 5
+  border-bottom: 1px solid tan;
+}
+
+.guess:last-child {
+  border-bottom: none;
 }
 
 .keys {
   display: flex;
   flex-flow: row wrap;
-  flex: 1;
   align-items: center;
   justify-content: center;
   width: 40px;
-  border-left: 2px solid tan;
+  border-left: 1px solid tan;
 }
 
 .key {
@@ -57,7 +64,7 @@ body {
   flex-flow: row wrap;
   border: 3px solid tan;
   border-radius: 40px;
-  padding: 10px;
+  margin-bottom: 10px;
 }
 
 button {
@@ -66,9 +73,9 @@ button {
   border-radius: 50%;
   border: none;
   outline: none;
-  margin: 10px;
+  margin: 8px;
   cursor: pointer;
-  transition: all .1s ease;
+  transition: all 0.1s ease;
 }
 
 button:hover {
@@ -91,14 +98,18 @@ button:hover {
   background: #47B747;
 }
 
-#clear {
+.white {
+  background: white;
+}
+
+#clear, #check {
   background: tan;
   height: 40px;
   width: 100px;
   border-radius: 35px;
   border: none;
   outline: none;
-  margin: 10px;
+  margin: 5px 0;
   cursor: pointer;
   transition: all .1s ease;
   font-family: inherit;
