@@ -65,7 +65,7 @@ function playerGuess() {
       currentPinIndex = 0;
       }
 
-      console.log("currentGuess (" + currentGuess.length + ") " + currentGuess);
+      // console.log("currentGuess (" + currentGuess.length + ") " + currentGuess);
     }
   })
 
@@ -120,10 +120,9 @@ function checkGuess() {
       for (var i = 0; i < currentGuess.length; i++) {
         if (tempAnswer.indexOf(currentGuess[i]) !== -1) {
           $("div.guess").eq(currentGuessIndex).children(".keys").children(".key").eq(currentKeyIndex).addClass("white")
-          // $("div.key").eq(currentKeyIndex).addClass("white")
           console.log("(key: white) " + tempAnswer[tempAnswer.indexOf(currentGuess[i])])
           delete currentGuess[i];
-          delete tempAnswer[tempAnswer.indexOf(currentGuess[i])]
+          delete tempAnswer[tempAnswer.indexOf(currentGuess[i])];
           currentKeyIndex++;
           console.log("tempAnswer " + tempAnswer);
         }
@@ -136,7 +135,7 @@ function checkGuess() {
       currentKeyIndex = 0;
       currentGuess = [];
 
-      console.log("Checked guesses: " + currentGuessIndex)
+      // console.log("Checked guesses: " + currentGuessIndex)
     } // end complete guess
 
     // incomplete guess
