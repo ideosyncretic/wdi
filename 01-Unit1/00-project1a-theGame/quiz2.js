@@ -139,7 +139,9 @@ function updateDisplay() {
     if (quiz.currentQuestion === 9) {
       $("h1").removeClass("green").addClass("pink")
     }
+    console.log("Display updated: prompt and colour!")
   } // end non-gameOver condition
+  console.log("updateDisplay ran")
 }; // end updateDisplay
 
 function annYang() {
