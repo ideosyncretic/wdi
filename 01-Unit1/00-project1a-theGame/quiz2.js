@@ -61,11 +61,11 @@ function playTurn(choice) {
       console.log("Correct! Question " + quiz.currentQuestion + " Answer " +  quiz.questions[quiz.currentQuestion].correctAnswer)
   }
   // increment questions
-  ++quiz.currentQuestion;
+  quiz.currentQuestion++;
+  console.log("current question " + currentQuestion)
   // Stop the game when questions end
   if ( quiz.currentQuestion === numberOfQuestions() ) { quiz.isGameOver = true
   }
-  console.log("playTurn is " + correct);
   return correct; //
 };
 
