@@ -110,10 +110,10 @@ $(function(){
         $("h1").addClass("black").text("It's a draw!");
         console.log("It's a draw!");
       }
-      if (whoWon() !== 3)
+      if (whoWon() !== 3) {
       $("h1").addClass("black").text("Player " + whoWon() + " wins.");
       console.log("Player " + whoWon() + " won");
-    }
+      }
     else {
       // populate prompt and update colour
       $("h1").text(quiz.questions[quiz.currentQuestion].prompt);
