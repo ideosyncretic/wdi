@@ -100,7 +100,7 @@ function checkGuess() {
       // RED KEYS: matching position && colour
       for (var i = 0; i < currentGuess.length; i++) {
         if (currentGuess[i] === tempAnswer[i]) {
-          $("div.guess").eq(currentGuessIndex).children(".keys").children(".key").eq(currentKeyIndex).addClass("red")
+          $("div.guess").eq(currentGuessIndex).children(".keys").children(".key").eq(currentKeyIndex).addClass("red", 500)
           console.log("(key: red) " + tempAnswer[i])
           delete currentGuess[i];
           delete tempAnswer[i];
@@ -110,7 +110,7 @@ function checkGuess() {
           console.log("tempAnswer: " + tempAnswer)
 
           if (tempAnswer[0] === undefined && tempAnswer[1] === undefined && tempAnswer[2] === undefined && tempAnswer[3] === undefined) {
-            $("h3").text("you win :)");
+            $("h3").text("you win :)").effect("shake");
             winGame = true;
             console.log("WIN GAME" + gameOver())
           }
@@ -120,7 +120,7 @@ function checkGuess() {
       // WHITE KEYS: matching colour
       for (var i = 0; i < currentGuess.length; i++) {
         if (tempAnswer.indexOf(currentGuess[i]) !== -1) {
-          $("div.guess").eq(currentGuessIndex).children(".keys").children(".key").eq(currentKeyIndex).addClass("white")
+          $("div.guess").eq(currentGuessIndex).children(".keys").children(".key").eq(currentKeyIndex).addClass("white", 500)
           var j = tempAnswer.indexOf(currentGuess[i])
           console.log("(key: white) " + tempAnswer[j]);
           delete currentGuess[i];
@@ -130,6 +130,11 @@ function checkGuess() {
           console.log("tempAnswer: " + tempAnswer)
         }
       } // end for loop (WHITE keys)
+
+      // if all pins incorrect
+      if (tempAnswer[0] && tempAnswer[1] && tempAnswer[2] && tempAnswer[3]) {
+        $("div.guess").eq(currentGuessIndex).children(".keys").children(".key").effect("shake", {distance:5}, 500)
+      }
 
       // reset for next guess
       tempAnswer = [answer[0], answer[1], answer[2], answer[3]];
@@ -144,6 +149,7 @@ function checkGuess() {
     // incomplete guess
     else if (!winGame && !gameOver() && currentGuess.length !== 4) {
       $("h3").text("please complete your guess")
+      $("#pickers").effect("shake", {distance:5}, "slow")
     }
   })
 }
