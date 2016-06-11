@@ -151,7 +151,7 @@ function annYang() {
       // Let's define a command.
       var commands = {
         'hello': function() { console.log("Hello!"); alert('Hello world!'); },
-        'red': function() { console.log("red"); playTurn("red") },
+        'red': function() { console.log("red"); playTurn("red"); },
         'orange': function() { console.log("orange"); playTurn("orange") },
         'yellow': function() { console.log("yellow"); playTurn("yellow") },
         'blue': function() { console.log("blue"); playTurn("blue") },
@@ -170,7 +170,7 @@ function annYang() {
       // Start listening.
       annyang.start();
 
-      updateDisplay();
+      annyang.addCallback("resultMatch", updateDisplay);
     } // end condition: if annyang
   } // end condition: if not game over
 
