@@ -105,6 +105,7 @@ function restart() {
 $(function(){
 
   function updateDisplay() {
+
     if (isGameOver()) {
       if (whoWon() === 3) {
         $("h1").addClass("black").text("It's a draw!");
@@ -114,6 +115,8 @@ $(function(){
       $("h1").addClass("black").text("Player " + whoWon() + " wins.");
       console.log("Player " + whoWon() + " won");
       }
+    }; // end condition: if gameOver
+
     else {
       // populate prompt and update colour
       $("h1").text(quiz.questions[quiz.currentQuestion].prompt);
@@ -147,9 +150,10 @@ $(function(){
       if (quiz.currentQuestion === 9) {
         $("h1").removeClass("green").addClass("pink")
       }
-    }
-  };
-}); // DOM ready
+    } // end non-gameOver condition
+  }; // end updateDisplay
+
+}); // end DOM ready
 
 updateDisplay()
 
@@ -182,7 +186,8 @@ function annYang() {
       }
     updateDisplay();
     } // end condition: if not game over
-})
+
+}; // end annYang()
 
 annYang();
  // end code
