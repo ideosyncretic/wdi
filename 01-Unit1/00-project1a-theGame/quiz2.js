@@ -153,9 +153,8 @@ $(function(){
     } // end non-gameOver condition
   }; // end updateDisplay
 
-}); // end DOM ready
-
 updateDisplay()
+}); // end DOM ready
 
 function annYang() {
     if (!isGameOver()) {
