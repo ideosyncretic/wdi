@@ -73,7 +73,7 @@ function playTurn(choice) {
   // Stop the game when questions end
   if ( quiz.currentQuestion === numberOfQuestions() ) { quiz.isGameOver = true
   }
-  console.log("playTurn is " correct);
+  console.log("playTurn is " + correct);
   return correct; //
 };
 
