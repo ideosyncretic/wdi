@@ -106,7 +106,8 @@ function checkGuess() {
           delete tempAnswer[i];
 
           currentKeyIndex++;
-          console.log("tempAnswer " + tempAnswer);
+          console.log("currentGuess: " + currentGuess);
+          console.log("tempAnswer: " + tempAnswer)
 
           if (tempAnswer[0] === undefined && tempAnswer[1] === undefined && tempAnswer[2] === undefined && tempAnswer[3] === undefined) {
             $("h3").text("you win :)");
@@ -120,11 +121,13 @@ function checkGuess() {
       for (var i = 0; i < currentGuess.length; i++) {
         if (tempAnswer.indexOf(currentGuess[i]) !== -1) {
           $("div.guess").eq(currentGuessIndex).children(".keys").children(".key").eq(currentKeyIndex).addClass("white")
-          console.log("(key: white) " + tempAnswer[tempAnswer.indexOf(currentGuess[i])])
+          var j = tempAnswer.indexOf(currentGuess[i])
+          console.log("(key: white) " + tempAnswer[j]);
           delete currentGuess[i];
-          delete tempAnswer[tempAnswer.indexOf(currentGuess[i])];
+          delete tempAnswer[j];
           currentKeyIndex++;
-          console.log("tempAnswer " + tempAnswer);
+          console.log("currentGuess: " + currentGuess);
+          console.log("tempAnswer: " + tempAnswer)
         }
       } // end for loop (WHITE keys)
 
