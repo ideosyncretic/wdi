@@ -1,23 +1,22 @@
 console.log("jq loaded");
 
 // A constructor function allows us to easily make question objects
-function Question (prompt, answers, correctAnswerIndex) {
+function Question (prompt, correctAnswer) {
   this.prompt = prompt
-  this.answers = answers
-  this.correctAnswer = correctAnswerIndex
+  this.correctAnswer = correctAnswer
 }
 
 // Questions + Answers + Correct Answer Index
-var question1 = new Question('Blue', ['purple', 'blue', 'black', 'green'], 0) // green
-var question2 = new Question('Yellow', ['pink', 'yellow', 'orange', 'blue'], 2) // orange
-var question3 = new Question('Pink', ['grey', 'red', 'pink', 'blue'], 1) // red
-var question4 = new Question('Yellow', ['blue', 'yellow', 'grey', 'red'], 2) // grey
-var question5 = new Question('Green', ['green', 'black', 'orange', 'purple'], 1) // black
-var question6 = new Question('Orange', ['red', 'yellow', 'blue', 'orange'], 2) // blue
-var question7 = new Question('Black', ['black', 'pink', 'orange', 'blue'], 1) // pink
-var question8 = new Question('Grey', ['grey', 'yellow', 'purple', 'blue'], 2) // purple
-var question9 = new Question('Blue', ['blue', 'black', 'red', 'yellow'], 2) // red
-var question10 = new Question('Green', ['green', 'orange', 'black', 'pink'], 1) // pink
+var question1 = new Question('Blue', "green") // green
+var question2 = new Question('Yellow', "orange") // orange
+var question3 = new Question('Pink', "red") // red
+var question4 = new Question('Yellow', "grey") // grey
+var question5 = new Question('Green', "black") // black
+var question6 = new Question('Orange', "blue") // blue
+var question7 = new Question('Black', "pink") // pink
+var question8 = new Question('Grey', "purple") // purple
+var question9 = new Question('Blue', "red") // red
+var question10 = new Question('Green', "pink") // pink
 
 
 // Quiz Object. Starting variables/values.
@@ -47,7 +46,7 @@ function currentQuestion() {
 console.log("current question = " + currentQuestion())
 
 //It should return an integer that is the zero-based index the correct answer for the currrent question
-function correctAnswer(index) {
+function correctAnswer() {
   return quiz.questions[quiz.currentQuestion].correctAnswer
 };
 
@@ -115,10 +114,10 @@ function updateDisplay() {
     // populate prompt and update colour
     $("h1").text(quiz.questions[quiz.currentQuestion].prompt);
     // populate buttons with answer content
-    $("button").eq(0).text(quiz.questions[quiz.currentQuestion].answers[0]);
-    $("button").eq(1).text(quiz.questions[quiz.currentQuestion].answers[1]);
-    $("button").eq(2).text(quiz.questions[quiz.currentQuestion].answers[2]);
-    $("button").eq(3).text(quiz.questions[quiz.currentQuestion].answers[3]);
+    // $("button").eq(0).text(quiz.questions[quiz.currentQuestion].answers[0]);
+    // $("button").eq(1).text(quiz.questions[quiz.currentQuestion].answers[1]);
+    // $("button").eq(2).text(quiz.questions[quiz.currentQuestion].answers[2]);
+    // $("button").eq(3).text(quiz.questions[quiz.currentQuestion].answers[3]);
     if (quiz.currentQuestion === 0) {
       $("h1").addClass("green")
     }
@@ -152,15 +151,38 @@ function updateDisplay() {
   }
 };
 
-
 $( function () {
-  $("button").click( function() {
     if (!isGameOver()) {
-      playTurn($(this).index())
-      console.log($(this).index())
+      if (annyang) {
+        console.log("annyang loaded")
+        // Let's define a command.
+        var commands = {
+          'hello': function() { console.log("Hello!"); alert('Hello world!'); },
+          'red': function() { console.log("red"); playTurn("red")},
+          'orange': function() { console.log("orange"); playTurn("orange")},
+          'yellow': function() { console.log("yellow"); playTurn("yellow") },
+          'blue': function() { console.log("blue"); playTurn("blue") },
+          'green': function() { console.log("green"); playTurn("green") },
+          'pink': function() { console.log("pink"); playTurn("pink") },
+          'purple': function() { console.log("purple"); playTurn("purple") },
+          'brown': function() { console.log("brown"); playTurn("brown") },
+          'grey': function() { console.log("grey"); playTurn("grey") },
+          'black': function() { console.log("black"); playTurn("black")}
+
+        };
+
+        // Add our commands to annyang
+        annyang.addCommands(commands);
+
+        // Start listening.
+        annyang.start();
+
+      }
+
     }
     updateDisplay();
-  })
+
 updateDisplay();
 })
+
  // end code
