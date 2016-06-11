@@ -6,7 +6,7 @@ function Question (prompt, correctAnswer) {
   this.correctAnswer = correctAnswer
 }
 
-// Questions + Answers + Correct Answer Index
+// Questions + Answers
 var question1 = new Question('Blue', "green") // green
 var question2 = new Question('Yellow', "orange") // orange
 var question3 = new Question('Pink', "red") // red
@@ -22,11 +22,10 @@ var question10 = new Question('Green', "pink") // pink
 // Quiz Object. Starting variables/values.
 var quiz = {
   currentQuestion: 0,
-  questions: [question1, question2, question3, question4, question5, question6, question7, question8, question9],
+  questions: [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10],
   isGameOver: false,
   player1Points: 0,
   player2Points: 0,
-  playersAnswers: 0,
   player: 1,
 }
 
@@ -45,19 +44,12 @@ function currentQuestion() {
 
 console.log("current question is " + currentQuestion())
 
-//It should return an integer that is the zero-based index the correct answer for the currrent question
+// Returns a string that is the correct answer for the currrent question
 function correctAnswer() {
   return quiz.questions[quiz.currentQuestion].correctAnswer
 };
 
-
-
-//It should return an integer that is the number of answers for the CURRENT question
-function numberOfAnswers () {
-  return quiz.questions[quiz.currentQuestion].answers.length;
-};
-
-//It should take a single integer, which specifies which choice the current player wants to make. It should return a boolean true/false if the answer is correct.
+// Takes a single string, which represents answer the current player wants to make. It should return a boolean true/false if the answer is correct.
 function playTurn(choice) {
   if (quiz.isGameOver) {return false}; // bar move
   var correct = false;
@@ -100,9 +92,8 @@ function restart() {
   quiz.player = 1;
 };
 
-
 // run if DOM ready:
-$(function(){
+// $(function(){
 
   function updateDisplay() {
 
@@ -154,7 +145,7 @@ $(function(){
   }; // end updateDisplay
 
 updateDisplay()
-}); // end DOM ready
+// }); // end DOM ready
 
 function annYang() {
     if (!isGameOver()) {
