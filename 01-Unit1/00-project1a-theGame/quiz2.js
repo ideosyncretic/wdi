@@ -158,22 +158,21 @@ $( function () {
         // Let's define a command.
         var commands = {
           'hello': function() { console.log("Hello!"); alert('Hello world!'); },
-          'red': function() { console.log("red") },
-          'orange': function() { console.log("orange") },
-          'yellow': function() { console.log("yellow") },
-          'blue': function() { console.log("blue") },
-          'green': function() { console.log("green") },
-          'pink': function() { console.log("pink") },
-          'purple': function() { console.log("purple") },
-          'brown': function() { console.log("brown") },
-          'grey': function() { console.log("grey") },
-          'black': function() { console.log("black") }
+          'red': function() { console.log("red"); playTurn("red") },
+          'orange': function() { console.log("orange"); playTurn("orange") },
+          'yellow': function() { console.log("yellow"); playTurn("yellow") },
+          'blue': function() { console.log("blue"); playTurn("blue") },
+          'green': function() { console.log("green"); playTurn("green") },
+          'pink': function() { console.log("pink"); playTurn("pink") },
+          'purple': function() { console.log("purple"); playTurn("purple") },
+          'brown': function() { console.log("brown"); playTurn("brown") },
+          'grey': function() { console.log("grey"); playTurn("grey") },
+          'black': function() { console.log("black"); playTurn("black") }
 
         };
 
         // Add our commands to annyang
         annyang.addCommands(commands);
-        annyang.addCallback("resultMatch", playTurn());
 
         // Start listening.
         annyang.start();
