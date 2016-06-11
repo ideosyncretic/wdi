@@ -66,7 +66,7 @@ function playTurn(choice) {
       if (quiz.currentQuestion % 2) // if true, there's a remainder. thus it's an odd-indexed question (ie: quiz.questions[1]), making this player 2.
       { quiz.player2Points++ } // player 2 + point for correct answer
       else { quiz.player1Points++ } // player 1 + point for correct answer
-      console.log("question " + quiz.currentQuestion + " answer " +  quiz.questions[quiz.currentQuestion].correctAnswer)
+      console.log("Correct! Question " + quiz.currentQuestion + " Answer " +  quiz.questions[quiz.currentQuestion].correctAnswer)
   }
   // increment questions
   ++quiz.currentQuestion;
@@ -181,8 +181,7 @@ $( function () {
 
     }
     updateDisplay();
-
-updateDisplay();
 })
 
+updateDisplay()
  // end code
