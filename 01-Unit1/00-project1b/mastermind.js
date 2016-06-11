@@ -139,7 +139,7 @@ function checkGuess() {
     } // end complete guess
 
     // incomplete guess
-    else if (!winGame && currentGuess.length !== 4) {
+    else if (!winGame && !gameOver() && currentGuess.length !== 4) {
       $("h3").text("please complete your guess")
     }
   })
