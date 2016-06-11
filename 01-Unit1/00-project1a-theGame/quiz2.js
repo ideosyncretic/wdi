@@ -170,8 +170,8 @@ function annYang() {
       // Start listening.
       annyang.start();
 
+      updateDisplay();
     } // end condition: if annyang
-    updateDisplay();
   } // end condition: if not game over
 
 }; // end annYang()
