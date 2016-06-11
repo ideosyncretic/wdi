@@ -143,43 +143,40 @@ function updateDisplay() {
 }; // end updateDisplay
 
 function annYang() {
-    if (!isGameOver()) {
-      if (annyang) {
-        console.log("annyang loaded")
-        // Let's define a command.
-        var commands = {
-          'hello': function() { console.log("Hello!"); alert('Hello world!'); },
-          'red': function() { console.log("red"); playTurn("red") },
-          'orange': function() { console.log("orange"); playTurn("orange") },
-          'yellow': function() { console.log("yellow"); playTurn("yellow") },
-          'blue': function() { console.log("blue"); playTurn("blue") },
-          'green': function() { console.log("green"); playTurn("green") },
-          'pink': function() { console.log("pink"); playTurn("pink") },
-          'purple': function() { console.log("purple"); playTurn("purple") },
-          'brown': function() { console.log("brown"); playTurn("brown") },
-          'grey': function() { console.log("grey"); playTurn("grey") },
-          'black': function() { console.log("black"); playTurn("black") }
+  if (!isGameOver()) {
+    if (annyang) {
+      console.log("annyang loaded")
+      // Let's define a command.
+      var commands = {
+        'hello': function() { console.log("Hello!"); alert('Hello world!'); },
+        'red': function() { console.log("red"); playTurn("red") },
+        'orange': function() { console.log("orange"); playTurn("orange") },
+        'yellow': function() { console.log("yellow"); playTurn("yellow") },
+        'blue': function() { console.log("blue"); playTurn("blue") },
+        'green': function() { console.log("green"); playTurn("green") },
+        'pink': function() { console.log("pink"); playTurn("pink") },
+        'purple': function() { console.log("purple"); playTurn("purple") },
+        'brown': function() { console.log("brown"); playTurn("brown") },
+        'grey': function() { console.log("grey"); playTurn("grey") },
+        'black': function() { console.log("black"); playTurn("black") }
 
-        };
+      };
 
-        // Add our commands to annyang
-        annyang.addCommands(commands);
+      // Add our commands to annyang
+      annyang.addCommands(commands);
 
-        // Start listening.
-        annyang.start();
+      // Start listening.
+      annyang.start();
 
-      }
-    } // end condition: if not game over
+    } // end condition: if annyang
+    updateDisplay();
+  } // end condition: if not game over
 
 }; // end annYang()
 
 $( function () {
-    if (!isGameOver()) {
-      annYang();
-    }
-    updateDisplay();
-  })
-updateDisplay();
-})
+  annYang();
+  updateDisplay();
+});
 
  // end code
