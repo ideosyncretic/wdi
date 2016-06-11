@@ -110,7 +110,7 @@ function checkGuess() {
           console.log("tempAnswer: " + tempAnswer)
 
           if (tempAnswer[0] === undefined && tempAnswer[1] === undefined && tempAnswer[2] === undefined && tempAnswer[3] === undefined) {
-            $("h3").text("you win :)").effect("shake");
+            $("h3").text("you win :)").effect("shake", {distance:5} "slow");
             winGame = true;
             console.log("WIN GAME" + gameOver())
           }
