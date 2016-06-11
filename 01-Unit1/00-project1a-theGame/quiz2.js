@@ -43,7 +43,7 @@ function currentQuestion() {
   return quiz.currentQuestion;
 };
 
-console.log("current question = " + currentQuestion())
+console.log("current question is " + currentQuestion())
 
 //It should return an integer that is the zero-based index the correct answer for the currrent question
 function correctAnswer() {
@@ -73,8 +73,8 @@ function playTurn(choice) {
   // Stop the game when questions end
   if ( quiz.currentQuestion === numberOfQuestions() ) { quiz.isGameOver = true
   }
-  return correct;
-  console.log(correct); //
+  console.log(correct);
+  return correct; //
 };
 
 //It should return a true or false if the quiz is over.
