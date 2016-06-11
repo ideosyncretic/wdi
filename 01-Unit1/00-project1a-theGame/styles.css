@@ -13,7 +13,7 @@ body {
   font-family: "Georgia", serif;
   color: white;
   font-size: 24px;
-  background: turquoise;
+  background: url("bg.gif");
   background-size: cover;
   text-align: center;
 }
