@@ -115,7 +115,7 @@ $(function(){
       $("h1").addClass("black").text("Player " + whoWon() + " wins.");
       console.log("Player " + whoWon() + " won");
       }
-    }; // end condition: if gameOver
+    } // end condition: if gameOver
 
     else {
       // populate prompt and update colour
