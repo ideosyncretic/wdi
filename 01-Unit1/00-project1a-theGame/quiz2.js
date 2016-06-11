@@ -73,7 +73,7 @@ function playTurn(choice) {
   // Stop the game when questions end
   if ( quiz.currentQuestion === numberOfQuestions() ) { quiz.isGameOver = true
   }
-  console.log(correct);
+  console.log("playTurn is " correct);
   return correct; //
 };
 
@@ -100,58 +100,60 @@ function restart() {
   quiz.player = 1;
 };
 
-function updateDisplay() {
-  if (isGameOver()) {
-    if (whoWon() === 3) {
-      $("h1").addClass("black").text("It's a draw!");
-      console.log("It's a draw!");
-    }
-    if (whoWon() !== 3)
-    $("h1").addClass("black").text("Player " + whoWon() + " wins.");
-    console.log("Player " + whoWon() + " won");
-  }
-  else {
-    // populate prompt and update colour
-    $("h1").text(quiz.questions[quiz.currentQuestion].prompt);
-    // populate buttons with answer content
-    // $("button").eq(0).text(quiz.questions[quiz.currentQuestion].answers[0]);
-    // $("button").eq(1).text(quiz.questions[quiz.currentQuestion].answers[1]);
-    // $("button").eq(2).text(quiz.questions[quiz.currentQuestion].answers[2]);
-    // $("button").eq(3).text(quiz.questions[quiz.currentQuestion].answers[3]);
-    if (quiz.currentQuestion === 0) {
-      $("h1").addClass("green")
-    }
-    if (quiz.currentQuestion === 1) {
-      $("h1").removeClass("green").addClass("orange")
-    }
-    if (quiz.currentQuestion === 2) {
-      $("h1").removeClass("orange").addClass("red")
-    }
-    if (quiz.currentQuestion === 3) {
-      $("h1").removeClass("red").addClass("grey")
-    }
-    if (quiz.currentQuestion === 4) {
-      $("h1").removeClass("grey").addClass("black")
-    }
-    if (quiz.currentQuestion === 5) {
-      $("h1").removeClass("black").addClass("blue")
-    }
-    if (quiz.currentQuestion === 6) {
-      $("h1").removeClass("blue").addClass("pink")
-    }
-    if (quiz.currentQuestion === 7) {
-      $("h1").removeClass("pink").addClass("purple")
-    }
-    if (quiz.currentQuestion === 8) {
-      $("h1").removeClass("purple").addClass("red")
-    }
-    if (quiz.currentQuestion === 9) {
-      $("h1").removeClass("green").addClass("pink")
-    }
-  }
-};
 
-$( function () {
+// run if DOM ready:
+$(function(){
+
+  function updateDisplay() {
+    if (isGameOver()) {
+      if (whoWon() === 3) {
+        $("h1").addClass("black").text("It's a draw!");
+        console.log("It's a draw!");
+      }
+      if (whoWon() !== 3)
+      $("h1").addClass("black").text("Player " + whoWon() + " wins.");
+      console.log("Player " + whoWon() + " won");
+    }
+    else {
+      // populate prompt and update colour
+      $("h1").text(quiz.questions[quiz.currentQuestion].prompt);
+      if (quiz.currentQuestion === 0) {
+        $("h1").addClass("green")
+      }
+      if (quiz.currentQuestion === 1) {
+        $("h1").removeClass("green").addClass("orange")
+      }
+      if (quiz.currentQuestion === 2) {
+        $("h1").removeClass("orange").addClass("red")
+      }
+      if (quiz.currentQuestion === 3) {
+        $("h1").removeClass("red").addClass("grey")
+      }
+      if (quiz.currentQuestion === 4) {
+        $("h1").removeClass("grey").addClass("black")
+      }
+      if (quiz.currentQuestion === 5) {
+        $("h1").removeClass("black").addClass("blue")
+      }
+      if (quiz.currentQuestion === 6) {
+        $("h1").removeClass("blue").addClass("pink")
+      }
+      if (quiz.currentQuestion === 7) {
+        $("h1").removeClass("pink").addClass("purple")
+      }
+      if (quiz.currentQuestion === 8) {
+        $("h1").removeClass("purple").addClass("red")
+      }
+      if (quiz.currentQuestion === 9) {
+        $("h1").removeClass("green").addClass("pink")
+      }
+    }
+  };
+}); // DOM ready
+
+updateDisplay()
+
+function annYang() {
     if (!isGameOver()) {
       if (annyang) {
         console.log("annyang loaded")
@@ -178,10 +180,9 @@ $( function () {
         annyang.start();
 
       }
-
-    }
     updateDisplay();
+    } // end condition: if not game over
 })
 
-updateDisplay()
+annYang();
  // end code
