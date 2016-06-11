@@ -183,7 +183,6 @@ function annYang() {
         annyang.start();
 
       }
-    updateDisplay();
     } // end condition: if not game over
 
 }; // end annYang()
