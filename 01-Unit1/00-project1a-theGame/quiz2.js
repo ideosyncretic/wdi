@@ -62,7 +62,7 @@ function playTurn(choice) {
   }
   // increment questions
   quiz.currentQuestion++;
-  console.log("current question " + currentQuestion)
+  console.log("current question " + quiz.currentQuestion)
   // Stop the game when questions end
   if ( quiz.currentQuestion === numberOfQuestions() ) { quiz.isGameOver = true
   }
