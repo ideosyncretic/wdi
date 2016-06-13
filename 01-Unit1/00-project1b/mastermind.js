@@ -41,7 +41,6 @@ function startGame() {
 startGame();
 console.log(answer);
 
-
 var checkedGuesses = [];
 var currentGuess = [];
 var currentPinIndex = 0;
@@ -110,9 +109,7 @@ function checkGuess() {
           console.log("tempAnswer: " + tempAnswer)
 
           if (tempAnswer[0] === undefined && tempAnswer[1] === undefined && tempAnswer[2] === undefined && tempAnswer[3] === undefined) {
-            $("h3").text("you win :)").effect("shake", {distance:5} "slow");
             winGame = true;
-            console.log("WIN GAME" + gameOver())
           }
         }
       } // end for loop (RED keys)
@@ -150,16 +147,24 @@ function checkGuess() {
     else if (!winGame && !gameOver() && currentGuess.length !== 4) {
       $("h3").text("please complete your guess")
       $("#pickers").effect("shake", {distance:5}, "slow")
+      $("div.guess").eq(currentGuessIndex).effect("shake", {distance:5}, "slow")
     }
+
+    gameOver();
   })
 }
 
 checkGuess();
 
 function gameOver() {
-  if ( winGame || checkedGuesses.length === 10 ) {
+  if ( checkedGuesses.length === 10 && !winGame ) {
     $("h1").text("Game Over")
+    $("h3").text("You lose!")
     return true
+  }
+  if (winGame) {
+    $("h1").text("Game Over")
+    $("h3").text("You win!").effect("shake", {distance:5}, "slow");
   }
   return false;
 };
@@ -167,25 +172,38 @@ function gameOver() {
 gameOver();
 
 
-// function giveUp() {
-//   $("#giveup").click(function() {
-//
-//   })
-// }
+function giveUp() {
+  $("#giveup").click(function() {
 
-// function restart() {
-//   $("#restart").click(function() {
-//     answer = []
-//     checkedGuesses = [];
-//     currentGuess = [];
-//     currentPinIndex = 0;
-//     currentKeyIndex = 0;
-//     currentGuessIndex = 0;
-//     winGame = false;
-//     $("div.guess").children("button").removeClass;
-//     $("div.guess").children(".keys").children(".key").removeClass;
-//     startGame();
-//   })
-// }
+  })
+}
+
+function replay() {
+  $("#replay").click(function() {
+    // remove color from keys
+    var lastClass = $("div.guess").children(".keys").children(".key").attr("class").split(" ").pop();
+    $("div.guess").children(".keys").children(".key").removeClass(lastClass)
+    $("div.guess").children("button").removeClass();
+
+    console.log("replay ran");
+    console.log(currentPinIndex + currentGuessIndex + winGame)
+
+    // reset variables
+    answer = [];
+    checkedGuesses = [];
+    currentGuess = [];
+    currentPinIndex = 0;
+    currentKeyIndex = 0;
+    currentGuessIndex = 0;
+    winGame = false;
+
+    // reset headers display
+    $("h1").text("Mastermind")
+    $("h3").text("⟠")
+    startGame();
+  })
+}
+
+replay();
 
 });// end $ code

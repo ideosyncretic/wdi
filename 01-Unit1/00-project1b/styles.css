@@ -77,11 +77,11 @@ button {
   transition: all 0.1s ease;
 }
 
-button.picker {
+button.picker, button.controls {
   cursor: pointer;
 }
 
-button.picker:hover {
+button.picker:hover, button.controls:hover {
   transform: scale(1.2, 1.2);
 }
 
@@ -112,7 +112,7 @@ button.picker:hover {
 #clear, #check, #giveup, #replay {
   background: tan;
   height: 40px;
-  width: 150px;
+  width: 170px;
   border-radius: 35px;
   border: none;
   outline: none;
@@ -123,4 +123,10 @@ button.picker:hover {
   font-size: 20px;
   letter-spacing: 2px;
   color: white;
+}
+
+#giveup, #replay {
+  background: none;
+  border: 2px solid tan;
+  color: tan;
 }
