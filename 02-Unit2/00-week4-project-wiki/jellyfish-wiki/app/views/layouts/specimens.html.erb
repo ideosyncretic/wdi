@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Jellyfish Wiki</title>
+    <title>Bloom: A Jellyfish Wiki</title>
     <%= csrf_meta_tags %>
 
 
@@ -9,7 +9,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="background-color: darkgrey">
+    <%= render 'jellyfish/nav' %><br><br>
     <%= yield %>
   </body>
 </html>

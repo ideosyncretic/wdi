@@ -1,5 +1,7 @@
 class JellyfishController < ApplicationController
 
+  layout 'specimens'
+
   def index
   end
 
@@ -15,10 +17,6 @@ class JellyfishController < ApplicationController
 
     if @jellyfish === "box"
       @title = "Box Jellyfish"
-    end
-
-    if @jellyfish === "moon"
-      @title = "Moon Jellyfish"
     end
 
     if @jellyfish === "moon"
