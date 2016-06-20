@@ -37,7 +37,8 @@ p {
 .jumbotron{
     height: 100vh;
     width: 100vw;
-    background-image: url(http://26.media.tumblr.com/tumblr_m0h7xcyilW1rohigno1_500.gif);
+    background-image: url(image_path("golden.gif"));
+    // background-image: url(http://26.media.tumblr.com/tumblr_m0h7xcyilW1rohigno1_500.gif);
     // background-image: url(http://umad.com/img/2015/9/jellyfish-gif-10048-10456-hd-wallpapers.jpg);
     background-repeat: no-repeat;
     background-size: cover;
