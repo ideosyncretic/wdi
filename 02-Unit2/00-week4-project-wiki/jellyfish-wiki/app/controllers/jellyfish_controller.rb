@@ -18,7 +18,7 @@ class JellyfishController < ApplicationController
     if @jellyfish === "box"
       @title = "Box Jellyfish"
     end
-
+ 
     if @jellyfish === "moon"
       @title = "Moon Jellyfish"
     end
