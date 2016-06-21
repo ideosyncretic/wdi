@@ -5,6 +5,7 @@ class JellyfishController < ApplicationController
   def index
   end
 
+
   def show
     @jellyfish = params[:id]
     if @jellyfish === "moon"
@@ -18,7 +19,7 @@ class JellyfishController < ApplicationController
     if @jellyfish === "box"
       @title = "Box Jellyfish"
     end
- 
+
     if @jellyfish === "moon"
       @title = "Moon Jellyfish"
     end
