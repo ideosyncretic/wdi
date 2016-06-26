@@ -10,7 +10,12 @@
   </head>
 
   <body>
-    <%= render 'jellyfish/nav' %>
+    <%= render 'jellyfishes/nav' %>
     <%= yield %>
+    <% flash.each do |name, message| %>
+      <div class="flash-message flash-message-<%= name %>">
+        <%= message %> <!-- stored in cookie. adds some persistence -->
+      </div>
+    <% end %>
   </body>
 </html>

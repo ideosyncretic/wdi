@@ -14,41 +14,75 @@
  *= require_self
  */
 
+$font-family-sans-serif: "Work Sans", Helvetica, Arial, sans-serif !default;
+$font-size-base: 16px;
+
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
-@import url(https://fonts.googleapis.com/css?family=Arvo:400,700);
+@import 'https://fonts.googleapis.com/css?family=Noto+Serif|Work+Sans';
 
-body {
-  font-family: 'Arvo';
+
+.carousel-inner img {
+    width: 100vw
+  }
+
+.carousel-control:hover {
+  background: none;
 }
 
-h1, h2 {
-  margin: 10px 30px;
+body {
+  // font-family: 'Arvo';
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Serif', serif;
+}
+
+h5:first-child {
+  margin-top: 0;
+}
+
+.glyphicon {
+  padding-right: 5px;
+}
+
+.specimen {
+  padding: 30px;
+  .list-group-item {
+    border: none;
+  }
+  h5 {
+    color: coral;
+  }
+  .stats li {
+    padding: 20px;
+  }
+  .specimen-image {
+    padding: 0;
+    .specimen-image-rounded {
+      border-top-right-radius: 4px;
+      border-top-left-radius: 4px;
+    }
+  }
 }
 
 p {
-  margin: 30px;
+  line-height: 150%;
 }
 
 .navbar {
   margin-bottom: 0;
-}
-
-.jumbotron{
-    height: 100vh;
-    width: 100vw;
-    background-image: url(image_path("golden.gif"));
-    // background-image: url(http://26.media.tumblr.com/tumblr_m0h7xcyilW1rohigno1_500.gif);
-    // background-image: url(http://umad.com/img/2015/9/jellyfish-gif-10048-10456-hd-wallpapers.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 40vh 40vw;
-    color: #222222;
-    text-align: center;
-    margin-bottom: 0;
-
+  .navbar-brand {
+    color: coral;
+  }
 }
 
 .about {
-    background-image: url(image_path("moon.gif"));
+  text-align: center;
+  background-image: url(http://26.media.tumblr.com/tumblr_m0h7xcyilW1rohigno1_500.gif);
+}
+
+.list-group-item {
+  display: block;
 }

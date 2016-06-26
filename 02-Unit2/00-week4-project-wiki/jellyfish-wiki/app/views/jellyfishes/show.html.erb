@@ -1,0 +1,19 @@
+<div class="specimen">
+  <ul class="list-group col-xs-12 col-md-6 col-md-offset-1">
+    <li class="list-group-item specimen-image"><img src="<%= @jellyfish.image %>" class="specimen-image-rounded img-responsive"></li>
+
+    <li class="list-group-item"><h1><%= @jellyfish.name %></h1></li>
+
+    <li class="list-group-item"><p><%= @jellyfish.description %></p></li>
+  </ul>
+
+  <ul class="stats list-group col-xs-12 col-md-3 col-md-offset-0">
+    <li class="list-group-item"><h5><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Scientific Name</h5> <em><%= @jellyfish.scientific_name %></em></li>
+
+    <li class="list-group-item"><h5><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Higher Classification</h5> <%= @jellyfish.higher_classification %></li>
+
+    <li class="list-group-item"><h5><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> Rank</h5> <%= @jellyfish.rank %></li>
+
+    <li class="list-group-item"><h5><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span> Diameter</h5> <%= @jellyfish.diameter %></li>
+  </ul>
+</div>
