@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :set_jellyfish, only: [:show, :create, :edit, :update, :destroy]
+  # before_action :set_jellyfish, only: [:show, :create, :edit, :update, :destroy]
 
   # declare methods as helper methods so they are accessible from views
   helper_method :current_user
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
 end
 
-def set_jellyfish
-  @jellyfishes = Jellyfish.all
-  @jellyfish = Jellyfish.find(params[:id])
-end
+# def set_jellyfish
+#   @jellyfishes = Jellyfish.all
+#   @jellyfish = Jellyfish.find(params[:id])
+# end

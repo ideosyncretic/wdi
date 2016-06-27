@@ -4,7 +4,7 @@ class JellyfishesController < ApplicationController
   layout 'jellyfishes'
 
   def index
-    @jellyfishes = Jellyfish.all
+    $jellyfishes = Jellyfish.all
   end
 
 
@@ -33,8 +33,8 @@ class JellyfishesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_jellyfish
-      @jellyfishes = Jellyfish.all
-      @jellyfish = Jellyfish.find(params[:id])
+      $jellyfishes = Jellyfish.all
+      $jellyfish = Jellyfish.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

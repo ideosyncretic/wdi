@@ -1,7 +1,12 @@
-<link rel="stylesheet" href="flickity.css" media="screen">
-<script src="/path/to/flickity.pkgd.min.js"></script>
+<link rel="stylesheet" href="https://npmcdn.com/flickity@1.2/dist/flickity.min.css">
 
-<div class="carousel js-flickity">
+<script src="https://npmcdn.com/flickity@1.2/dist/flickity.pkgd.min.js"></script>
+
+<div class="carousel js-flickity" data-flickity-options='{ "cellAlign": "left", "wrapAround": true, "setGallerySize": false, "autoPlay": 3000, "pauseAutoPlayOnHover": false }'>
   <div class="carousel-cell" style="background-image: url(<%= asset_path('c.jpg') %>)"></div>
-  <div class="carousel-cell"></div>
+  <div class="carousel-cell" style="background-image: url(<%= asset_path('e.jpg') %>)"></div>
+  <div class="carousel-cell" style="background-image: url(<%= asset_path('a.jpg') %>)"></div>
+  <div class="carousel-cell" style="background-image: url(<%= asset_path('d.jpg') %>)"></div>
+  <div class="carousel-cell" style="background-image: url(<%= asset_path('f.jpg') %>)"></div>
+  <div class="carousel-cell" style="background-image: url(<%= asset_path('b.png') %>)"></div>
 </div>

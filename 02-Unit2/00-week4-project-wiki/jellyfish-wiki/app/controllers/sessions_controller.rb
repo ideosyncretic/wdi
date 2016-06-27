@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   # session is triggered after user login
 
   def new
-    @jellyfishes = Jellyfish.all
+    # $jellyfishes = Jellyfish.all
   end
 
   def create
