@@ -1,10 +1,11 @@
 class JellyfishesController < ApplicationController
   before_action :authenticate_user, only: [:create, :edit, :update, :destroy]
+  before_action :set_jellyfish, except: [:index]
 
   layout 'jellyfishes'
 
   def index
-    $jellyfishes = Jellyfish.all
+    @jellyfishes = Jellyfish.all
   end
 
 
@@ -33,8 +34,8 @@ class JellyfishesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_jellyfish
-      $jellyfishes = Jellyfish.all
-      $jellyfish = Jellyfish.find(params[:id])
+      @jellyfishes = Jellyfish.all
+      @jellyfish = Jellyfish.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
