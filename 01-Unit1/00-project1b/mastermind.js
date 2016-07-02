@@ -212,26 +212,26 @@ function replay() {
 
     // var lastClass = $("div.guess").children(".keys").children(".key").attr("class").split(" ").pop();
 
-    $("div.guess").children(".keys").children(".key").removeClass("red")
-    $("div.guess").children(".keys").children(".key").removeClass("white")
-    $("div.guess").children("button").removeClass();
-
-    console.log("replay ran");
-    console.log(currentPinIndex + currentGuessIndex + winGame)
-
-    // reset variables
-    answer = [];
-    checkedGuesses = [];
-    currentGuess = [];
-    currentPinIndex = 0;
-    currentKeyIndex = 0;
-    currentGuessIndex = 0;
-    winGame = false;
-
-    // reset headers display
-    $("h1").text("Mastermind")
-    $("h3").text("⟠")
-    startGame();
+    // $("div.guess").children(".keys").children(".key").removeClass("red")
+    // $("div.guess").children(".keys").children(".key").removeClass("white")
+    // $("div.guess").children("button").removeClass();
+    //
+    // console.log("replay ran");
+    // console.log(currentPinIndex + currentGuessIndex + winGame)
+    //
+    // // reset variables
+    // answer = [];
+    // checkedGuesses = [];
+    // currentGuess = [];
+    // currentPinIndex = 0;
+    // currentKeyIndex = 0;
+    // currentGuessIndex = 0;
+    // winGame = false;
+    //
+    // // reset headers display
+    // $("h1").text("Mastermind")
+    // $("h3").text("⟠")
+    // startGame();
   })
 }
 
