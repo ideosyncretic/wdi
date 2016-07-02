@@ -1,0 +1,24 @@
+<%= form_for(artist) do |f| %>
+  <% if artist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
+
+      <ul>
+      <% artist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :manager_id %>
+    <%= f.collection_select :manager_id, Manager.all, :id, :name %>
+    <%= f.label :artist_id %>
+    <%= f.collection_select :id, Artist.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

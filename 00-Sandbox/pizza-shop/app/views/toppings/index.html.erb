@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Toppings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @toppings.each do |topping| %>
+      <tr>
+        <td><%= topping.name %></td>
+        <td><%= link_to 'Show', topping %></td>
+        <td><%= link_to 'Edit', edit_topping_path(topping) %></td>
+        <td><%= link_to 'Destroy', topping, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Topping', new_topping_path %>

@@ -1,0 +1,126 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$font-family-sans-serif: "Work Sans", Helvetica, Arial, sans-serif !default;
+$font-size-base: 16px;
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'https://fonts.googleapis.com/css?family=Noto+Serif|Work+Sans';
+
+
+
+body {
+  // font-family: 'Arvo';
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Serif', serif;
+}
+
+
+p {
+  line-height: 150%;
+}
+
+
+h5:first-child {
+  margin-top: 0;
+}
+
+.glyphicon {
+  padding-right: 5px;
+}
+
+.specimen {
+  padding: 30px;
+  .list-group-item {
+    border: none;
+  }
+  h5 {
+    color: coral;
+  }
+  .stats li {
+    padding: 20px;
+  }
+  .specimen-image {
+    padding: 0;
+    .specimen-image-rounded {
+      border-top-right-radius: 4px;
+      border-top-left-radius: 4px;
+    }
+  }
+}
+
+.navbar {
+  margin-bottom: 0;
+  .navbar-brand {
+    color: coral;
+  }
+}
+
+.about {
+  text-align: center;
+}
+
+.list-group-item {
+  display: block;
+}
+
+
+/* inherit height from parent */
+.carousel { height: calc(100vh - 50px);
+  .carousel-cell {
+    width: 100%; /* full width */
+    height: 100%; /* height of carousel */
+    margin-right: 10px;
+    background-size: cover;
+    background-position: center;
+    margin-right: 0;
+  }
+}
+
+
+/* big buttons, no circle */
+.flickity-prev-next-button {
+  width: 100px;
+  height: 100px;
+  background: transparent !important;
+}
+/* arrow color */
+.flickity-prev-next-button .arrow {
+  fill: white !important;
+}
+.flickity-prev-next-button.no-svg {
+  color: white !important;
+}
+/* hide disabled button */
+.flickity-prev-next-button:disabled {
+  display: none;
+}
+
+/* move page dots into carousel */
+.flickity-page-dots { bottom: 10px !important;
+  /* white circles */
+  .dot {
+    width: 15px !important;
+    height: 15px !important;
+    opacity: 1;
+    background: transparent !important;
+    border: 2px solid white;
+  }
+}

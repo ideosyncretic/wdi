@@ -1,0 +1,8 @@
+<h1><%= @customer.name %></h1>
+
+<h2>Orders</h2>
+<% @customer.orders.each do |order| %>
+  <li><%= order %></li>
+  <% end %>
+
+<%= link_to 'Destroy', @customer, method: :delete, data: { confirm: 'Are you sure?' } %>
