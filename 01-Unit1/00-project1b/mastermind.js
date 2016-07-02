@@ -47,27 +47,27 @@ var currentPinIndex = 0;
 var currentKeyIndex = 0;
 var currentGuessIndex = 0;
 var winGame = false;
+var playerGivesUp = false;
 
 $(function() {
 
 // player has 10 tries to guess the sequence.
 function playerGuess() {
-  $(".picker").click(function() {
-    if ( !gameOver() && currentGuess.length < 4) {
-      currentGuess.push($(this).attr("class").split(" ")[0])
-      $("div.guess").eq(currentGuessIndex).children("button").eq(currentPinIndex).addClass($(this).attr("class").split(" ")[0])
+    $(".picker").click(function() {
+      if ( !gameOver() && currentGuess.length < 4 && !playerGivesUp) {
+        currentGuess.push($(this).attr("class").split(" ")[0])
+        $("div.guess").eq(currentGuessIndex).children("button").eq(currentPinIndex).addClass($(this).attr("class").split(" ")[0])
 
-      if (currentPinIndex < 3) {
-      currentPinIndex++
+        if (currentPinIndex < 3) {
+        currentPinIndex++
+        }
+        else if (currentPinIndex === 3) {
+        currentPinIndex = 0;
+        }
+
+        // console.log("currentGuess (" + currentGuess.length + ") " + currentGuess);
       }
-      else if (currentPinIndex === 3) {
-      currentPinIndex = 0;
-      }
-
-      // console.log("currentGuess (" + currentGuess.length + ") " + currentGuess);
-    }
-  })
-
+    })
 };
 
 
@@ -160,11 +160,13 @@ function gameOver() {
   if ( checkedGuesses.length === 10 && !winGame ) {
     $("h1").text("Game Over")
     $("h3").text("You lose!")
+    playerGivesUp = true
     return true
   }
   if (winGame) {
     $("h1").text("Game Over")
     $("h3").text("You win!").effect("shake", {distance:5}, "slow");
+    playerGivesUp = true
     return true
   }
   return false;
@@ -182,23 +184,22 @@ function giveUp() {
       $("h3").text("")
       if (answer[i] === "blue") {
         $("div.display").append("<button class='blue'></button>")
-        console.log(answer[i]);
       };
       if (answer[i] === "red") {
         $("div.display").append("<button class='red'></button>")
-        console.log(answer[i]);
       };
       if (answer[i] === "yellow") {
         $("div.display").append("<button class='yellow'></button>");
-        console.log(answer[i]);
       };
       if (answer[i] === "green") {
         $("div.display").append("<button class='green'></button>")
-        console.log(answer[i]);
       };
     }
+
+    $("h1").text("Game Over")
+    playerGivesUp = true;
+    console.log(playerGivesUp)
   })
-  gameOver();
 }
 
 giveUp();
