@@ -165,24 +165,54 @@ function gameOver() {
   if (winGame) {
     $("h1").text("Game Over")
     $("h3").text("You win!").effect("shake", {distance:5}, "slow");
+    return true
   }
   return false;
 };
 
 gameOver();
 
-
 function giveUp() {
   $("#giveup").click(function() {
+    // answerString = answer.join(", ")
+    // $("h3.message").text(answerString)
+    // console.log(answerString)
 
+    for (var i = 0; i < answer.length; i++) {
+      $("h3").text("")
+      if (answer[i] === "blue") {
+        $("div.display").append("<button class='blue'></button>")
+        console.log(answer[i]);
+      };
+      if (answer[i] === "red") {
+        $("div.display").append("<button class='red'></button>")
+        console.log(answer[i]);
+      };
+      if (answer[i] === "yellow") {
+        $("div.display").append("<button class='yellow'></button>");
+        console.log(answer[i]);
+      };
+      if (answer[i] === "green") {
+        $("div.display").append("<button class='green'></button>")
+        console.log(answer[i]);
+      };
+    }
   })
+  gameOver();
 }
+
+giveUp();
 
 function replay() {
   $("#replay").click(function() {
+    location.reload()
+
     // remove color from keys
-    var lastClass = $("div.guess").children(".keys").children(".key").attr("class").split(" ").pop();
-    $("div.guess").children(".keys").children(".key").removeClass(lastClass)
+
+    // var lastClass = $("div.guess").children(".keys").children(".key").attr("class").split(" ").pop();
+
+    $("div.guess").children(".keys").children(".key").removeClass("red")
+    $("div.guess").children(".keys").children(".key").removeClass("white")
     $("div.guess").children("button").removeClass();
 
     console.log("replay ran");

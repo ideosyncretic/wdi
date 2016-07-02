@@ -22,6 +22,7 @@ body {
 
 h1, h3 {
   margin: 10px 0;
+  text-align: center;
 }
 
 .guesses {
@@ -102,7 +103,7 @@ button.picker:hover, button.controls:hover {
 }
 
 .white {
-  background: white;
+  background: #FFFFFF;
 }
 
 .answer {
