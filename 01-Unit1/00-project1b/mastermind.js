@@ -176,29 +176,28 @@ gameOver();
 
 function giveUp() {
   $("#giveup").click(function() {
-    // answerString = answer.join(", ")
-    // $("h3.message").text(answerString)
-    // console.log(answerString)
+    if (!playerGivesUp) {
+      for (var i = 0; i < answer.length; i++) {
+        $("h3").text("")
+        if (answer[i] === "blue") {
+          $("div.display").append("<button class='blue'></button>")
+        };
+        if (answer[i] === "red") {
+          $("div.display").append("<button class='red'></button>")
+        };
+        if (answer[i] === "yellow") {
+          $("div.display").append("<button class='yellow'></button>");
+        };
+        if (answer[i] === "green") {
+          $("div.display").append("<button class='green'></button>")
+        }
+      }
+      // end for loop
 
-    for (var i = 0; i < answer.length; i++) {
-      $("h3").text("")
-      if (answer[i] === "blue") {
-        $("div.display").append("<button class='blue'></button>")
-      };
-      if (answer[i] === "red") {
-        $("div.display").append("<button class='red'></button>")
-      };
-      if (answer[i] === "yellow") {
-        $("div.display").append("<button class='yellow'></button>");
-      };
-      if (answer[i] === "green") {
-        $("div.display").append("<button class='green'></button>")
-      };
+      $("h1").text("Game Over")
+      playerGivesUp = true;
+      console.log(playerGivesUp)
     }
-
-    $("h1").text("Game Over")
-    playerGivesUp = true;
-    console.log(playerGivesUp)
   })
 }
 
