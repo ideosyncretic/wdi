@@ -1,0 +1,101 @@
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Futura', 'Trebuchet MS', Arial, sans-serif;
+  font-size: 20px;
+  background: ghostwhite;
+  border: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  max-height: 90vh;
+}
+
+h1, h3 {
+  color: cornflowerblue;
+  text-align: center;
+}
+
+.board {
+  height: 54vh;
+  width: 54vh;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.tile {
+  border: 3px solid ghostwhite;
+  background: cornflowerblue;
+  box-sizing: border-box;
+  width: 18vh;
+  height: 18vh;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 3em;
+  transition: all .2s ease;
+}
+
+.tile:hover {
+  background: turquoise;
+  transform: scale(0.9, 0.9);
+  border: none;
+}
+
+.buttons {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background-color: turquoise;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  color: white;
+  text-align: center;
+  font-size: 1em;
+  padding: 15px;
+  margin: 5px;
+  font-family: "Futura";
+  transition: all .1s ease;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.2, 1.2);
+}
+
+#speed-button.disabled {
+  background-color: lightgrey;
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    padding: 0;
+    margin: 10px;
+  }
+
+  .board {
+    width: 78vw;
+    height: 78vw;
+  }
+
+  .tile {
+    width: 26vw;
+    height: 26vw;
+  }
+}

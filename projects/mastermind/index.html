@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="title" content="⟠ Mastermind by Sprazzeus" />
+    <meta name="description" content="An old-school classic, made into a simple browser-based game." />
+    <meta property="og:url" content="http://sprazzeus.github.io/wdi/01-Unit1/00-project1b/" />
+    <meta property="og:title" content="⟠ Mastermind by Sprazzeus" />
+    <meta property="og:description" content="An old-school classic, made into a simple browser-based game." />
+    <meta property="og:image" content="http://sprazzeus.github.io/wdi/01-Unit1/00-project1b/thumbnail.png">
+    <!-- <link rel="image_src" href="http://sprazzeus.github.io/wdi/01-Unit1/00-project1b/thumbnail.png" /> -->
+    <link rel="stylesheet" href="./styles.css">
+    <title>Mastermind</title>
+      <script   src="https://code.jquery.com/jquery-2.2.4.min.js"    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+    <script src="mastermind.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+    <!-- <script src="https://loudlinks.rocks/js/loudlinks.min.js"></script> -->
+    <script   src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"   integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="   crossorigin="anonymous"></script>
+  </head>
+  <body>
+  <div class="display">
+    <h1>Mastermind</h1>
+    <div class="message"><h3 class="message">⟠</h3></div>
+  </div>
+  <!-- <div class="answer">
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+  </div> -->
+
+  <div class="guesses">
+        <!-- guess 1 -->
+        <div class="guess">
+          <button></button>
+          <button></button>
+          <button></button>
+          <button></button>
+
+          <div class="keys" id="0">
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+          </div>
+        </div>
+        <!-- guess 2 -->
+        <div class="guess">
+          <button></button>
+          <button></button>
+          <button></button>
+          <button></button>
+
+          <div class="keys" id="1">
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+          </div>
+        </div>
+        <!-- guess 3 -->
+        <div class="guess">
+          <button></button>
+          <button></button>
+          <button></button>
+          <button></button>
+
+          <div class="keys" id="2">
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+          </div>
+        </div>
+        <!-- guess 4 -->
+        <div class="guess">
+          <button></button>
+          <button></button>
+          <button></button>
+          <button></button>
+
+          <div class="keys" id="3">
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+          </div>
+        </div>
+        <!-- guess 5 -->
+        <div class="guess">
+          <button></button>
+          <button></button>
+          <button></button>
+          <button></button>
+
+          <div class="keys" id="4">
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+          </div>
+        </div>
+        <!-- guess 6 -->
+        <div class="guess">
+          <button></button>
+          <button></button>
+          <button></button>
+          <button></button>
+
+          <div class="keys" id="5">
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+          </div>
+        </div>
+        <!-- guess 7 -->
+        <div class="guess">
+          <button></button>
+          <button></button>
+          <button></button>
+          <button></button>
+
+          <div class="keys" id="6">
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+          </div>
+        </div>
+        <!-- guess 8 -->
+        <div class="guess">
+          <button></button>
+          <button></button>
+          <button></button>
+          <button></button>
+
+          <div class="keys" id="7">
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+          </div>
+        </div>
+        <!-- guess 9 -->
+        <div class="guess">
+          <button></button>
+          <button></button>
+          <button></button>
+          <button></button>
+
+          <div class="keys" id="8">
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+          </div>
+        </div>
+
+        <!-- guess 10 -->
+        <div class="guess">
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+
+            <div class="keys" id="9">
+              <div class="key"></div>
+              <div class="key"></div>
+              <div class="key"></div>
+              <div class="key"></div>
+            </div>
+        </div>
+      </div>
+
+    <!-- pin pickers -->
+    <div class="buttons" id="pickers">
+      <button class="blue picker"></button>
+      <button class="red picker"></button>
+      <button class="yellow picker"></button>
+      <button class="green picker"></button>
+    </div>
+
+    <button class="controls" id="check">GUESS</button>
+    <button class="controls" id="clear">CLEAR</button>
+    <button class="controls" id="giveup">GIVE UP</button>
+    <button class="controls" id="replay">REPLAY</button>
+  </body>
+</html>
+
+
+<!-- REMOVE FOR PRODUCTION ! -->
+<!-- <script>
+document.write('<script src="http://'
+   + (location.host || 'localhost').split(':')[0]
+   + ':35729/livereload.js"></'
+   + 'script>')
+</script> -->
