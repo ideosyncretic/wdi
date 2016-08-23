@@ -1,0 +1,232 @@
+@import url("./reset.css");
+
+html {
+  font-size: 20px;
+  background: url("../images/asimov2.jpg") top no-repeat fixed;
+  background-size: auto;
+  background-color: #999999;
+}
+
+body {
+  font-family: 'Futura', 'Trebuchet MS', Arial, sans-serif;
+  color: white;
+}
+
+.column {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  display: flex;
+  padding: 20px;
+  color: gold;
+  background-color: black;
+  justify-content: center;
+}
+
+main {
+  align-items: center;
+  margin: 15% 0;
+  height: 100%;
+}
+
+main#homepage {
+  justify-content: center;
+  height: calc(100vh - 80px);
+  margin: 0;
+  display: flex;
+}
+
+h1 {
+  font-size: 3.5em;
+  color: gold;
+  line-height: 1;
+  text-align: center;
+  margin: 0 30px;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+h3 {
+  font-size: 1.1em;
+}
+
+em {
+  font-style: italic;
+  font-weight: bold;
+}
+
+p {
+  line-height: 1.5;
+  text-align: left;
+  font-size: 0.9em;
+  font-family: "Optima";
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+ul li {
+  padding: 0 10px;
+}
+
+a:hover {
+  color: gold;
+}
+
+/* bio */
+
+article {
+  padding-top: 30px;
+  display: flex;
+  flex-flow: column wrap;
+  max-width: 50%;
+}
+
+/* bibiliography */
+
+.books {
+  display: flex;
+  max-width: 600px;
+  margin: 30px;
+}
+
+.book {
+    border-bottom: 2px solid gold;
+    padding: 30px;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.book:last-child {
+  border-bottom: none;
+}
+
+section {
+  display: flex;
+  flex-flow: column wrap;
+  padding-left: 30px;
+  flex: 2;
+}
+
+div .image {
+  height: 272px;
+  width: 160px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* bibiliography read more */
+
+.read-more-state {
+  display: none;
+}
+
+.read-more-target {
+  opacity: 0;
+  max-height: 0;
+  font-size: 0;
+  transition: .25s ease;
+}
+
+.read-more-target br {
+  display: none;
+}
+
+.read-more-state:checked ~ .read-more-wrap .read-more-target br {
+  display: block;
+}
+
+.read-more-state:checked ~ .read-more-wrap .read-more-target {
+  opacity: 1;
+  font-size: inherit;
+  max-height: 999em;
+}
+
+.read-more-state ~ .read-more-trigger:before {
+  content: 'Read more';
+}
+
+.read-more-state:checked ~ .read-more-trigger:before {
+  content: 'Read less';
+}
+
+.read-more-trigger {
+  cursor: pointer;
+  display: inline-block;
+  color: gold;
+  font-size: .9em;
+  line-height: 2;
+  margin-top: 1em;
+}
+
+/* quotes */
+
+blockquote {
+  background: grey;
+  border-left: 10px solid gold;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 1em;
+  line-height: 1.5em;
+  font-family: "Optima";
+  max-width: 60%;
+}
+
+blockquote:before, blockquote:after {
+  color: gold;
+}
+
+blockquote:before {
+  content: '“';
+
+}
+
+blockquote:after {
+  content: '”';
+}
+
+/* mobile view */
+
+@media all and (max-width: 480px) {
+  nav ul {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+
+  }
+
+  div .books {
+    margin: 0 30px;
+  }
+
+  div .book {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  div .image {
+    margin-bottom: 30px;
+  }
+
+  section {
+    padding: 0;
+  }
+
+  article {
+    max-width: 70%;
+  }
+}
